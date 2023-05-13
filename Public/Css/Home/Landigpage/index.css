@@ -1,0 +1,205 @@
+/*DEFAULT STYLE*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*GLOBAL CSS VARIABLES*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root {
+    --Darkblue: #172455;
+    --Blue: #0EA5C6;
+    --Orange: #ff7514;
+    --White: #EEEEF7;
+    --Maintext: var(--Darkblue);
+    --Secondary: #8794BA;
+    --Shadowcards: background: #D9D9D9;
+    box-shadow: 0px 18px 50px -15px rgba(0, 0, 0, 0.25);
+    --font-family: 'Roboto', sans-serif;
+}
+
+/*STYLES FOR ALL CONTAINERS*/
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background: var(--White);
+
+}
+.header,
+main,
+footer {
+    flex: 0 0 auto;
+}
+
+/*HEADER*/
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /*En esta ruta relativa se divide en dos partes.
+    1.Los "../" indican los saltos que debe dar este css para llegar a la imagen
+    en total 4 saltos:1.Landingpage,2.Home,3.CSS,4.Public
+    2."Public/Assets/Img/backgroundTop.svg" nos indica donde esta la imagen en nuestro directorio*/
+    background: var(--White);
+    background-image: url("../../../../Public/Assets/Img/backgroundTop.svg");
+    background-size: cover;
+    font-family: var(--font-family);
+    border-bottom: 1px solid black;
+}
+.header .head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    height: auto;
+    margin: 2em auto auto auto;
+    border: 1px solid rgb(255, 0, 0);
+}
+.head .logoHeader {
+    height: 35px;
+    object-fit: contain;
+}
+.head .menuHeader {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 auto 0 2em;
+    gap: 1em;
+}
+.menuHeader ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.menuHeader .btn {
+    list-style: none;
+    margin: auto;
+    padding: 5px 10px;
+    font-size: 1em;
+    border: none;
+    background: transparent;
+    position: relative;
+    transition: .5s ease;
+    z-index: 1;
+}
+.menuHeader a{
+    text-decoration: none;
+    color: var(--Secondary);
+}
+.menuHeader .btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--Orange);
+    transition: .5s ease;
+    z-index: 1;
+}
+.menuHeader .btn:hover::before{
+    width: 100%;
+}
+.menuHeader .btn:hover a{
+    color: var(--White);
+    transition-delay: .5s;
+}
+.menuHeader .btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--Orange);
+    transition: .4s ease;
+    z-index: -1;
+}
+.menuHeader .btn:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: var(--White);
+}
+.head .buttonsLogin {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.313em;
+    margin: auto 0;
+}
+.buttonsLogin .signIn {
+    margin: auto;
+    text-decoration: none;
+    padding: 8px 20px;
+    position: relative;
+    background-color: transparent;
+    color: var(--Secondary);
+    z-index: 1;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+.buttonsLogin .signIn:hover {
+    color: var(--White);
+    transition: all .1s ease;
+}
+.buttonsLogin .signIn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--Orange);
+    border-radius: 10px;
+    transition: all .3s ease;
+    z-index: -1;
+}
+.buttonsLogin .signIn:hover::after {
+    height: 100%;
+    color: var(--White);
+}
+.buttonsLogin .signUp {
+    margin: auto;
+    text-decoration: none;
+    padding: 8px 20px;
+    position: relative;
+    background-color: var(--Orange);
+    color: var(--White);
+    z-index: 1;
+    transition: all .3s ease;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.buttonsLogin .signUp:hover {
+    background-color: transparent;
+    color: var(--Secondary);
+    transition: all .3s ease;
+}
+.buttonsLogin .signUp::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background-color: var(--Orange);
+    border-radius: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    transition: all .3s ease;
+}
+.buttonsLogin .signUp:hover::before {
+    height: 1%;
+}
+
+
+main {
+    height: 100vh;
+    background-color: chartreuse;
+}
+
+/*Responsive*/
