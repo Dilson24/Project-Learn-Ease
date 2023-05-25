@@ -58,64 +58,90 @@ footer {
     /*Aregregar margin para dispositivos*/
 }
 
-.header .head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    width: 100%;
-    height: auto;
-    box-shadow: 0px 4px 4px #12214D;
-    transition: background-color;
-}
-
-.active {
+.activeScroll {
     background-color: #172655d5;
     /*ajustar opacidad*/
 }
 
-.head .logoHeader {
+.menuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--Secondary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 4px 4px #12214D;
+    background-color: #172655d5;
+    z-index: 999;
+
+}
+
+/* responsive */
+.menuHeader.active {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 24em;
+    animation-name: wipe-in-down;
+    animation-duration: 2.5s;
+    animation-timing-function: cubic-bezier(.25, 1, .30, 1);
+    animation-fill-mode: both;
+}
+
+@keyframes wipe-in-down {
+    from {
+        clip-path: inset(0 0 100% 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+.menuHeader .logoHeader {
     height: 35px;
     object-fit: contain;
     border: 1px solid rgb(255, 0, 0);
 }
 
-.head .menuHeader {
+.menuHeader .bars {
+    position: absolute;
+    right: -10px;
+    top: -9px;
+    display: none;
+}
+
+ul.nav-links {
     display: flex;
-    align-items: flex-start;
     margin: 0 auto 0 2em;
-    gap: 1em;
     border: 1px solid rgb(255, 0, 0);
 }
 
-.head .menuHeader ul {
+/* responsive */
+.menuHeader.active ul.nav-links {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background-color: #172655d5;
+
 }
 
-.head .menuHeader .btn {
+li.nav-link {
     list-style: none;
-    margin: auto;
-    padding: 5px 10px;
-    font-size: 1em;
-    border: none;
+    margin: 0.5rem 1rem;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
     background: transparent;
     position: relative;
     transition: .5s ease;
     z-index: 1;
 }
 
-.head .menuHeader a {
-    text-decoration: none;
-    color: var(--Secondary);
-}
-
-.head .menuHeader .btn::before {
+li.nav-link::before {
     content: '';
     position: absolute;
     left: 0;
@@ -127,120 +153,158 @@ footer {
     z-index: 1;
 }
 
-.head .menuHeader .btn:hover::before {
+li.nav-link:hover::before {
     width: 100%;
 }
 
-.head .menuHeader .btn:hover a {
-    color: var(--White);
-    transition-delay: .5s;
-}
-
-.head .menuHeader .btn::after {
+li.nav-link::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
     height: 0;
     width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     background-color: var(--Orange);
     transition: .4s ease;
     z-index: -1;
 }
 
-.head .menuHeader .btn:hover::after {
+li.nav-link:hover::after {
     height: 100%;
     transition-delay: 0.4s;
     color: var(--White);
 }
 
-.head .menuIcon {
-    display: flex;
-    align-items: center;
+li.nav-link:hover a {
+    color: var(--White);
+    transition-delay: .5s;
 }
 
-.head .menuIcon .iconNav {
-    display: none;
+li.nav-link a {
+    text-decoration: none;
+    color: inherit;
+    font-size: large;
 }
 
-.head .buttonsLogin {
+
+
+.buttonsLogin {
     display: flex;
-    align-items: flex-end;
-    gap: 0.313em;
-    margin: auto 0;
+    gap: 1em;
     border: 1px solid rgb(255, 0, 0);
 }
 
-.head .buttonsLogin .signIn {
-    margin: auto;
-    text-decoration: none;
-    padding: 8px 20px;
-    position: relative;
-    background-color: transparent;
+.signIn {
+    list-style: none;
     color: var(--Secondary);
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    position: relative;
+    transition: .5s ease;
     z-index: 1;
-    transition: all .3s ease;
-    cursor: pointer;
 }
 
-.head .buttonsLogin .signIn:hover {
-    color: var(--White);
-    transition: all .1s ease;
+.signIn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--Orange);
+    transition: .5s ease;
+    z-index: 1;
 }
 
-.head .buttonsLogin .signIn::after {
+.signIn:hover::before {
+    width: 100%;
+}
+
+.signIn::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
     height: 0;
     width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     background-color: var(--Orange);
-    border-radius: 10px;
-    transition: all .3s ease;
+    transition: .4s ease;
     z-index: -1;
 }
 
-.head .buttonsLogin .signIn:hover::after {
+.signIn:hover::after {
     height: 100%;
+    transition-delay: 0.4s;
     color: var(--White);
 }
 
-.head .buttonsLogin .signUp {
-    margin: auto;
+.signIn:hover a {
+    color: var(--White);
+    transition-delay: .5s;
+}
+
+.signIn a {
     text-decoration: none;
-    padding: 8px 20px;
+    color: inherit;
+    font-size: large;
+}
+
+
+.buttonsLogin .signUp {
+    list-style: none;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    background: transparent;
     position: relative;
     background-color: var(--Orange);
     color: var(--White);
+    transition: .5s ease;
+    border-radius: 4px;
     z-index: 1;
-    transition: all .3s ease;
     cursor: pointer;
-    border-radius: 10px;
+
 }
 
-.head .buttonsLogin .signUp:hover {
+.buttonsLogin .signUp:hover {
     background-color: transparent;
     color: var(--Secondary);
-    transition: all .3s ease;
+    transition: .3s ease;
 }
 
-.head .buttonsLogin .signUp::before {
+.buttonsLogin .signUp::before {
     position: absolute;
     content: "";
     z-index: -1;
     background-color: var(--Orange);
-    border-radius: 10px;
     left: 0;
     right: 0;
     bottom: 0;
     height: 100%;
-    transition: all .3s ease;
+    border-radius: 4px;
+    transition: .4s ease;
 }
 
-.head .buttonsLogin .signUp:hover::before {
-    height: 1%;
+.buttonsLogin .signUp:hover::before {
+    height: 2px;
 }
+
+.signUp:hover a {
+    color: var(--Secondary);
+}
+
+.signUp a {
+    text-decoration: none;
+    color: var(--White);
+}
+
+
 
 
 .contentHeader {
@@ -261,8 +325,9 @@ footer {
 
 .contentHeader .headerText {
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: self-end;
     gap: 1.5em;
     height: auto;
     border: 1px solid rgb(255, 234, 0);
@@ -271,7 +336,6 @@ footer {
 .headerText .headerTitle {
     color: var(--White);
     text-align: right;
-    margin-top: 3em;
 }
 
 .headerText .headerP {
@@ -281,54 +345,86 @@ footer {
 
 }
 
-.headerText .tryNow {
-    margin-top: 2em;
-    text-decoration: none;
-    padding: 8px 20px;
+.tryNow .tryNow {
+    display: flex;
+    gap: 1em;
+}
+
+.headerText .tryNowBtn {
+    list-style: none;
+    margin: 0.5rem 0rem;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    background: transparent;
     position: relative;
     background-color: var(--Orange);
     color: var(--White);
-    z-index: 1;
-    transition: all .3s ease;
+    transition: .5s ease;
+    border-radius: 4px;
+    z-index: 10;
     cursor: pointer;
-    border-radius: 10px;
+
 }
 
-
-.headerText .tryNow:hover {
+.tryNow .tryNowBtn:hover {
     background-color: transparent;
     color: var(--Secondary);
-    transition: all .3s ease;
+    transition: .3s ease;
 }
 
-.headerText .tryNow::before {
+.tryNow .tryNowBtn::before {
     position: absolute;
     content: "";
     z-index: -1;
     background-color: var(--Orange);
-    border-radius: 10px;
     left: 0;
     right: 0;
     bottom: 0;
     height: 100%;
-    transition: all .3s ease;
+    border-radius: 4px;
+    transition: .4s ease;
 }
 
-.headerText .tryNow:hover::before {
-    height: 1%;
+.tryNow .tryNowBtn:hover::before {
+    height: 2px;
 }
+
+.tryNow .tryNowBtn:hover a {
+    color: var(--Secondary);
+}
+
+.tryNow .tryNowBtn a {
+    text-decoration: none;
+    color: var(--White);
+}
+
 
 /*Responsive*/
-@media screen and (max-width: 1238px) {
+/************ M I N - W I D T H **************/
+@media screen and (min-width: 1520px) {
     .headerText .headerTitle {
         margin-top: 1em;
+    }
+}
+
+@media screen and (min-width: 1238px) {
+    .headerText .headerTitle {
+        margin-top: -1em;
     }
 
 }
 
+
+/************ M A X - W I D T H **************/
 @media screen and (max-width: 1200px) {
 
     /*+1200px pantallas grades*/
+    .header {
+        background-image: url("../../../../Public/Assets/Img/backgroundTop1300.svg");
+        height: 128vh;
+    }
+
     .contentHeader {
         gap: 1.5em;
         margin-top: 2em;
@@ -336,27 +432,109 @@ footer {
 
     }
 
+    ul.nav-links {
+        margin: 0 0 0 0;
+    }
+
     .headerText,
     .contentImg {
         width: 50%;
+        height: 100%;
+        justify-content: space-evenly;
     }
 
-    .contentImg .headerImg {
+    li.nav-link {
+        margin: 0.5rem 0rem;
+    }
+
+    .headerImg {
         width: 100%;
         height: 100%;
-        image-rendering: auto;
     }
 
 
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 993px) {
 
+    /*Laptops*/
+    .header {
+        background-image: url("../../../../Public/Assets/Img/backgroundTop992.svg");
+
+    }
+
+    .menuHeader .bars {
+        display: block;
+    }
+
+    .menuHeader .nav-links {
+        display: none;
+    }
+
+    ul.nav-links {
+        display: flex;
+        justify-content: space-around;
+        height: 100%;
+
+    }
+
+    .buttonsLogin {
+        position: absolute;
+        right: 3.063em;
+    }
+
+    .contentHeader {
+        margin-top: 2.5em;
+        height: 90%;
+
+    }
+
+    .headerText .headerP, .tryNow {
+        margin-top: -2em;
+
+    }
 }
 
 @media screen and (max-width: 768px) {
-    /*Tables*/
 
+    /*Tables*/
+    .header {
+        background-image: url("../../../../Public/Assets/Img/backgroundTop768.svg");
+        position: relative;
+        z-index: 1;
+    }
+    .contentHeader {
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 1em;
+    }
+    .contentImg {
+        width: 100%;
+        height: 45%;
+    }
+
+    .headerImg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .headerText {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        margin: auto;
+
+    }
+
+    .headerText .headerTitle {
+        margin-top: 0em;
+    }
+
+    .headerText .tryNow {
+        margin-top: 0.1em;
+
+    }
 
 }
 

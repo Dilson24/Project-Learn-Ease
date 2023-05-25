@@ -1,10 +1,10 @@
-/*menu con cambio de background*/
-const scrolling = () => {
-  const head = document.querySelector('.head');
-  let windowPosition = window.scrollY > 50
-  head.classList.toggle('active', windowPosition)
-}
-window.addEventListener('scroll', scrolling);
+// /*menu con cambio de background*/
+// const scrolling = () => {
+//   const menuHeader = document.querySelector('.menuHeader');
+//   let windowPosition = window.scrollY > 50
+//   menuHeader.classList.toggle('activeScroll', windowPosition)
+// }
+// window.addEventListener('scroll', scrolling);
 
 /*Cambio de imagen*/
 // Obtén la referencia al elemento de imagen
@@ -17,13 +17,13 @@ function cambiarImagen() {
 
   if (screenWidth <= 1200) {
     // Cambia el valor del atributo src
-    imagen.src = 'Public/Assets/Img/header2.png';
+    imagen.src = 'Public/Assets/Img/header2-1.png';
 
     // Agrega una regla de estilo CSS para establecer max-width: 1200px
     imagen.style.maxWidth = '1200px';
   } else {
     // Restablece la imagen original
-    imagen.src = 'Public/Assets/Img/header2.svg';
+    imagen.src = 'Public/Assets/Img/header.svg';
 
     // Restablece el estilo de max-width
     imagen.style.maxWidth = '';
@@ -37,13 +37,15 @@ cambiarImagen();
 window.addEventListener('resize', cambiarImagen);
 
 
-/*menu*/
-  // Obtén las referencias a los elementos
-  var menuIcon = document.querySelector('.menuIcon');
-  var menuHeader = document.querySelector('.menuHeader');
+// /*menu*/
+// const bars = document.querySelector(".bars");
+const menuHeader = document.querySelector(".menuHeader");
+const hamburger = document.querySelector(".hamburger");
 
-  // Agrega un evento click a menuIcon para mostrar/ocultar el menú
-  menuIcon.addEventListener('click', function() {
-    menuHeader.classList.toggle('show');
-  });
+hamburger.onclick = () => {
+  hamburger.classList.toggle("is-active");
+  menuHeader.classList.toggle("active");
+}
+
+
 
