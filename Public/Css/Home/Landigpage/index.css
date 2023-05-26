@@ -54,8 +54,6 @@ footer {
     font-family: var(--font-family);
     border-bottom: 1px solid black;
     gap: 6em;
-    /* margin-bottom: 1em; */
-    /*Aregregar margin para dispositivos*/
 }
 
 .activeScroll {
@@ -185,7 +183,7 @@ li.nav-link:hover a {
 li.nav-link a {
     text-decoration: none;
     color: inherit;
-    font-size: large;
+    font-size: 1.125em;
 }
 
 
@@ -252,7 +250,8 @@ li.nav-link a {
 .signIn a {
     text-decoration: none;
     color: inherit;
-    font-size: large;
+    font-size: 1.125em;
+    ;
 }
 
 
@@ -302,10 +301,8 @@ li.nav-link a {
 .signUp a {
     text-decoration: none;
     color: var(--White);
+    font-size: 1.125em;
 }
-
-
-
 
 .contentHeader {
     display: flex;
@@ -325,10 +322,10 @@ li.nav-link a {
 
 .contentHeader .headerText {
     display: flex;
-    justify-content: space-around;
+    justify-content: right;
     flex-direction: column;
     align-items: self-end;
-    gap: 1.5em;
+    gap: 2em;
     height: auto;
     border: 1px solid rgb(255, 234, 0);
 }
@@ -336,18 +333,19 @@ li.nav-link a {
 .headerText .headerTitle {
     color: var(--White);
     text-align: right;
+    font-size: 2.813em;
+    /*45px*/
 }
 
 .headerText .headerP {
-    font-size: 1em;
+    font-size: 1.125em;
+    /*18*/
     color: var(--Secondary);
     text-align: justify;
-
 }
 
-.tryNow .tryNow {
-    display: flex;
-    gap: 1em;
+.tryNow {
+    margin-top: 2em;
 }
 
 .headerText .tryNowBtn {
@@ -397,6 +395,7 @@ li.nav-link a {
 .tryNow .tryNowBtn a {
     text-decoration: none;
     color: var(--White);
+    font-size: 1.125em;
 }
 
 
@@ -408,9 +407,25 @@ li.nav-link a {
     }
 }
 
-@media screen and (min-width: 1238px) {
-    .headerText .headerTitle {
-        margin-top: -1em;
+@media screen and (min-width: 1200px) {
+    .header {
+        height: 110vh;
+    }
+
+    .contentHeader {
+        height: 90%;
+    }
+
+    .contentImg,
+    .headerText {
+        width: 50%;
+        height: 100%;
+    }
+
+    .headerImg {
+        width: 100%;
+        height: 100%;
+        image-rendering: crisp-edges;
     }
 
 }
@@ -422,7 +437,8 @@ li.nav-link a {
     /*+1200px pantallas grades*/
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop1300.svg");
-        height: 128vh;
+        background-size: cover;
+        height: 122vh;
     }
 
     .contentHeader {
@@ -452,6 +468,16 @@ li.nav-link a {
         height: 100%;
     }
 
+    .headerText .headerTitle {
+        font-size: 2.188em;
+
+    }
+
+    .tryNow {
+        margin-top: 0em;
+        margin-bottom: 7em;
+    }
+
 
 }
 
@@ -460,6 +486,8 @@ li.nav-link a {
     /*Laptops*/
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop992.svg");
+        background-size: cover;
+        height: 130vh;
 
     }
 
@@ -489,9 +517,21 @@ li.nav-link a {
 
     }
 
-    .headerText .headerP, .tryNow {
-        margin-top: -2em;
+    .contentImg {
+        width: 60%;
+    }
 
+    .headerText {
+        width: 40%;
+    }
+
+    .headerText .headerTitle {
+        font-size: 1.875em;
+    }
+
+    .tryNow {
+        /* Arriba | Derecha | Abajo | Izquierda */
+        margin: 2em 0 5em 0;
     }
 }
 
@@ -500,23 +540,18 @@ li.nav-link a {
     /*Tables*/
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop768.svg");
-        position: relative;
-        z-index: 1;
     }
+
     .contentHeader {
         justify-content: space-between;
         flex-direction: column;
         gap: 0;
         margin-top: 1em;
     }
+
     .contentImg {
         width: 100%;
         height: 45%;
-    }
-
-    .headerImg {
-        width: 100%;
-        height: 100%;
     }
 
     .headerText {
@@ -524,14 +559,14 @@ li.nav-link a {
         height: auto;
         max-width: 100%;
         margin: auto;
-
     }
 
     .headerText .headerTitle {
-        margin-top: 0em;
+        margin-top: 1.5em;
     }
-
     .headerText .tryNow {
+        /* Arriba | Derecha | Abajo | Izquierda */
+        margin: 0.1em 0 0em 0;
         margin-top: 0.1em;
 
     }
@@ -539,10 +574,64 @@ li.nav-link a {
 }
 
 @media screen and (max-width: 600px) {
-    /*Moviles hasta los 320px*/
 
+    /*Moviles hasta los 320px*/
+    .buttonsLogin .signUp {
+        display: none;
+
+    }
+
+    .contentImg {
+        width: 100%;
+        height: 40%;
+    }
+
+    .headerText {
+        justify-content: space-between !important;
+        width: 100%;
+        gap: 1em !important;
+    }
+
+    .headerText .headerTitle {
+        font-size: 1.563em;
+        text-align: center;
+    }
+
+    .headerText .tryNow {
+        width: 90%;
+        /* Arriba | Derecha | Abajo | Izquierda */
+        margin: 0em auto 0em auto;
+
+    }
+
+    .headerText .tryNowBtn {
+        width: 100%;
+        text-align: center;
+
+    }
+
+    .tryNow .tryNowBtn a {
+        margin-left: auto;
+        margin-right: auto;
+        text-decoration: none;
+        color: var(--White);
+    }
 
 }
+@media screen and (max-width: 367px) {
+    .headerText .headerTitle {
+        margin-top: 0em;
+    }
+
+    .contentImg {
+        height: 30%;
+    }
+
+    .headerText {
+        height: 70%;
+    }
+}
+
 
 
 /* 
