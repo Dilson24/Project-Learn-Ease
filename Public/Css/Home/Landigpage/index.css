@@ -438,7 +438,6 @@ li.nav-link a {
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop1300.svg");
         background-size: cover;
-        height: 122vh;
     }
 
     .contentHeader {
@@ -487,8 +486,6 @@ li.nav-link a {
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop992.svg");
         background-size: cover;
-        height: 130vh;
-
     }
 
     .menuHeader .bars {
