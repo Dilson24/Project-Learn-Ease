@@ -43,7 +43,7 @@ footer {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /*aumentar para dispositivos grandes*/
+    gap: 6em;
     /*En esta ruta relativa se divide en dos partes.
     1.Los "../" indican los saltos que debe dar este css para llegar a la imagen
     en total 4 saltos:1.Landingpage,2.Home,3.CSS,4.Public
@@ -53,7 +53,6 @@ footer {
     background-size: cover;
     font-family: var(--font-family);
     border-bottom: 1px solid black;
-    gap: 6em;
 }
 
 .activeScroll {
@@ -65,13 +64,13 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--Secondary);
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    box-shadow: 0px 4px 4px #12214D;
+    position: fixed;
+    left: 0;
+    top: 0;
+    color: var(--Secondary);
     background-color: #172655d5;
+    box-shadow: 0px 4px 4px #12214D;
     z-index: 999;
 
 }
@@ -105,10 +104,10 @@ footer {
 }
 
 .menuHeader .bars {
+    display: none;
     position: absolute;
     right: -10px;
     top: -9px;
-    display: none;
 }
 
 ul.nav-links {
@@ -121,20 +120,19 @@ ul.nav-links {
 .menuHeader.active ul.nav-links {
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: center;
+    width: 100%;
     background-color: #172655d5;
-
 }
 
 li.nav-link {
+    display: flex;
+    align-items: center;
+    position: relative;
     list-style: none;
     margin: 0.5rem 1rem;
     padding: 0.4rem;
-    display: flex;
-    align-items: center;
     background: transparent;
-    position: relative;
     transition: .5s ease;
     z-index: 1;
 }
@@ -142,10 +140,10 @@ li.nav-link {
 li.nav-link::before {
     content: '';
     position: absolute;
+    width: 0;
+    height: 2px;
     left: 0;
     bottom: 0;
-    height: 2px;
-    width: 0;
     background-color: var(--Orange);
     transition: .5s ease;
     z-index: 1;
@@ -158,13 +156,13 @@ li.nav-link:hover::before {
 li.nav-link::after {
     content: '';
     position: absolute;
+    width: 100%;
+    height: 0;
     left: 0;
     bottom: 0;
-    height: 0;
-    width: 100%;
+    background-color: var(--Orange);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    background-color: var(--Orange);
     transition: .4s ease;
     z-index: -1;
 }
@@ -182,11 +180,9 @@ li.nav-link:hover a {
 
 li.nav-link a {
     text-decoration: none;
-    color: inherit;
     font-size: 1.125em;
+    color: inherit;
 }
-
-
 
 .buttonsLogin {
     display: flex;
@@ -195,13 +191,13 @@ li.nav-link a {
 }
 
 .signIn {
+    display: flex;
+    align-items: center;
+    position: relative;
     list-style: none;
     color: var(--Secondary);
     padding: 0.4rem;
-    display: flex;
-    align-items: center;
     background: transparent;
-    position: relative;
     transition: .5s ease;
     z-index: 1;
 }
@@ -209,10 +205,10 @@ li.nav-link a {
 .signIn::before {
     content: '';
     position: absolute;
+    width: 0;
+    height: 2px;
     left: 0;
     bottom: 0;
-    height: 2px;
-    width: 0;
     background-color: var(--Orange);
     transition: .5s ease;
     z-index: 1;
@@ -225,13 +221,13 @@ li.nav-link a {
 .signIn::after {
     content: '';
     position: absolute;
-    left: 0;
-    bottom: 0;
     height: 0;
     width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: var(--Orange);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    background-color: var(--Orange);
     transition: .4s ease;
     z-index: -1;
 }
@@ -249,26 +245,23 @@ li.nav-link a {
 
 .signIn a {
     text-decoration: none;
-    color: inherit;
     font-size: 1.125em;
-    ;
+    color: inherit;
 }
 
-
 .buttonsLogin .signUp {
-    list-style: none;
-    padding: 0.4rem;
     display: flex;
     align-items: center;
-    background: transparent;
     position: relative;
+    padding: 0.4rem;
+    border-radius: 4px;
+    list-style: none;
+    background: transparent;
     background-color: var(--Orange);
     color: var(--White);
     transition: .5s ease;
-    border-radius: 4px;
     z-index: 1;
     cursor: pointer;
-
 }
 
 .buttonsLogin .signUp:hover {
@@ -278,16 +271,16 @@ li.nav-link a {
 }
 
 .buttonsLogin .signUp::before {
-    position: absolute;
     content: "";
-    z-index: -1;
-    background-color: var(--Orange);
+    position: absolute;
+    height: 100%;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100%;
+    background-color: var(--Orange);
     border-radius: 4px;
     transition: .4s ease;
+    z-index: -1;
 }
 
 .buttonsLogin .signUp:hover::before {
@@ -300,24 +293,24 @@ li.nav-link a {
 
 .signUp a {
     text-decoration: none;
-    color: var(--White);
     font-size: 1.125em;
+    color: var(--White);
 }
 
 .contentHeader {
     display: flex;
     justify-content: space-around;
+    gap: 3em;
     width: 90%;
     height: auto;
-    gap: 3em;
-    margin-top: 2em;
+    margin-top: 2.5em;
     border: 1px solid rgb(255, 0, 0);
 }
 
 .contentImg .headerImg {
     background: var(--BackgroundCards);
-    box-shadow: var(--ShadowCards);
     border-radius: 30px;
+    box-shadow: var(--ShadowCards);
 }
 
 .contentHeader .headerText {
@@ -331,17 +324,17 @@ li.nav-link a {
 }
 
 .headerText .headerTitle {
-    color: var(--White);
     text-align: right;
     font-size: 2.813em;
+    color: var(--White);
     /*45px*/
 }
 
 .headerText .headerP {
     font-size: 1.125em;
     /*18*/
-    color: var(--Secondary);
     text-align: justify;
+    color: var(--Secondary);
 }
 
 .tryNow {
@@ -349,18 +342,18 @@ li.nav-link a {
 }
 
 .headerText .tryNowBtn {
+    display: flex;
+    align-items: center;
+    position: relative;
     list-style: none;
     margin: 0.5rem 0rem;
     padding: 0.4rem;
-    display: flex;
-    align-items: center;
     background: transparent;
-    position: relative;
     background-color: var(--Orange);
     color: var(--White);
-    transition: .5s ease;
     border-radius: 4px;
-    z-index: 10;
+    transition: .5s ease;
+    z-index: 1;
     cursor: pointer;
 
 }
@@ -374,14 +367,14 @@ li.nav-link a {
 .tryNow .tryNowBtn::before {
     position: absolute;
     content: "";
-    z-index: -1;
-    background-color: var(--Orange);
+    height: 100%;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100%;
+    background-color: var(--Orange);
     border-radius: 4px;
     transition: .4s ease;
+    z-index: -1;
 }
 
 .tryNow .tryNowBtn:hover::before {
@@ -393,19 +386,20 @@ li.nav-link a {
 }
 
 .tryNow .tryNowBtn a {
+    font-size: 1.125em;
     text-decoration: none;
     color: var(--White);
-    font-size: 1.125em;
 }
 
 
 /*Responsive*/
 /************ M I N - W I D T H **************/
 @media screen and (min-width: 1520px) {
-    .header{
-         background-image: url("../../../../Public/Assets/Img/backgroundTop1800.svg");
-         height: 110vh;
+    .header {
+        background-image: url("../../../../Public/Assets/Img/backgroundTop1800.svg");
+        height: 110vh;
     }
+
     .headerText .headerTitle {
         margin-top: 1em;
     }
@@ -431,7 +425,6 @@ li.nav-link a {
         height: 100%;
         image-rendering: crisp-edges;
     }
-
 }
 
 
@@ -445,10 +438,9 @@ li.nav-link a {
     }
 
     .contentHeader {
+        height: 80%;
         gap: 1.5em;
         margin-top: 2em;
-        height: 80%;
-
     }
 
     ul.nav-links {
@@ -541,7 +533,6 @@ li.nav-link a {
     /*Tables*/
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop768.svg");
-        height: 100vh;
     }
 
     .contentHeader {
