@@ -540,6 +540,7 @@ li.nav-link a {
     /*Tables*/
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop768.svg");
+        height: 100vh;
     }
 
     .contentHeader {
@@ -560,9 +561,11 @@ li.nav-link a {
         max-width: 100%;
         margin: auto;
     }
-    .headerTitle{
+
+    .headerTitle {
         margin-top: 1em;
     }
+
     .headerText .tryNow {
         /* Arriba | Derecha | Abajo | Izquierda */
         margin: 0.1em 0 0em 0;
@@ -586,12 +589,16 @@ li.nav-link a {
     .headerText {
         justify-content: space-around !important;
         width: 100%;
-        gap: 1em !important;
+        gap: 0em !important;
     }
 
     .headerText .headerTitle {
         font-size: 1.563em;
         text-align: center;
+    }
+
+    .headerText .headerP {
+        margin-top: -1.5em;
     }
 
     .headerText .tryNow {
@@ -615,6 +622,7 @@ li.nav-link a {
     }
 
 }
+
 @media screen and (max-width: 367px) {
     .headerText .headerTitle {
         margin-top: 0em;
