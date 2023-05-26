@@ -402,15 +402,19 @@ li.nav-link a {
 /*Responsive*/
 /************ M I N - W I D T H **************/
 @media screen and (min-width: 1520px) {
+    .header{
+         background-image: url("../../../../Public/Assets/Img/backgroundTop1800.svg");
+         height: 110vh;
+    }
     .headerText .headerTitle {
         margin-top: 1em;
     }
 }
 
 @media screen and (min-width: 1200px) {
-    .header {
+    /* .header {
         height: 110vh;
-    }
+    } */
 
     .contentHeader {
         height: 90%;
