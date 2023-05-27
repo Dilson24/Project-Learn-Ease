@@ -27,16 +27,20 @@
     display: flex;
     flex-direction: column;
     background: var(--White);
+}
 
+body {
+    background: var(--White);
 }
 
 .header,
 main,
 footer {
     flex: 0 0 auto;
+    font-family: var(--font-family);
 }
 
-/*HEADER*/
+/*H E A D E R*/
 
 .header {
     display: flex;
@@ -51,7 +55,6 @@ footer {
     background: var(--White);
     background-image: url("../../../../Public/Assets/Img/backgroundTop.svg");
     background-size: cover;
-    font-family: var(--font-family);
     border-bottom: 1px solid black;
 }
 
@@ -391,6 +394,291 @@ li.nav-link a {
     color: var(--White);
 }
 
+/*M A I N*/
+.main {
+    background-color: var(--White);
+    border: 1px solid greenyellow;
+    margin: auto;
+    gap: 4em;
+    width: 90%;
+}
+
+/*S E C T I O N - O N E*/
+.features {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 2em;
+    margin-top: 2em;
+    border: 1px solid rgb(255, 0, 0);
+}
+
+.featuresText {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 2em;
+}
+
+.featureTitle {
+    font-size: 2.5em;
+    color: var(--Maintext);
+    font-weight: 700;
+}
+
+.featureP {
+    color: var(--Secondary);
+    text-align: center;
+}
+
+.contentFeature {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2.5em;
+    margin-top: 3em;
+}
+
+.imgFeatures {
+    display: flex;
+    width: 4em;
+    height: 4em;
+    margin: 0 auto 0 auto;
+
+}
+
+.featuresTitle {
+    font-size: 1.125em;
+    color: var(--Maintext);
+    line-height: 2.5em;
+    text-align: center;
+}
+
+.featuresP {
+    color: var(--Secondary);
+    text-align: center;
+}
+
+/*S E C T I O N - T W O*/
+
+.featuresContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3em;
+    width: 100%;
+    border: 1px solid rgb(255, 0, 0);
+}
+
+.featuresC {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    gap: 2em;
+    width: 100%;
+}
+
+.featuresC:nth-child(2) {
+    flex-direction: row;
+}
+
+.imgFC {
+    width: 50%;
+    height: 100%;
+    background: var(--BackgroundCards);
+    border-radius: 30px;
+    box-shadow: var(--ShadowCards);
+}
+
+.fCText {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid yellow;
+    width: 100%;
+    height: 100%;
+    gap: 2em;
+    margin: auto 0 auto 0;
+}
+
+.fCTitle {
+    font-size: 2.5em;
+    color: var(--Maintext);
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.fCP {
+    font-size: 1.125em;
+    /*18*/
+    text-align: justify;
+    color: var(--Secondary);
+}
+
+/*S E C T I O N - T H R E E*/
+.FQA {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid rgb(255, 0, 0);
+}
+
+.FQAtext {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    width: 100%;
+}
+
+.FQAtitle {
+    font-size: 2.5em;
+    color: var(--Maintext);
+}
+
+.FQAp {
+    color: var(--Secondary);
+    text-align: center;
+}
+
+/*Acordion test*/
+
+.accordion dl,
+.accordion-list {
+    background: #FFFFFF;
+    box-shadow: var(--ShadowCards);
+    border-radius: 30px;
+    padding: 1em;
+    margin: 0 auto 0 auto;
+    width: 90%;
+}
+
+.accordion-list:after {
+    content: "";
+    display: block;
+    height: 1em;
+    width: 100%;
+    background-color: darken(#38cc70, 10%);
+}
+
+.accordion dd{
+    background-color: #eee;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.accordion p {
+    color: var(--Secondary);
+    padding: 1em 2em;
+}
+
+.contentFQA {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+.accordionTitle {
+    background-color: transparent;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.5em;
+    padding: 1em;
+    margin: .5em 0 .5em 0;
+    border-radius: 0.625em;
+    display: block;
+    text-decoration: none;
+    color: var(--Orange);
+    transition: background-color 0.5s ease-in-out;
+    border: 3px solid var(--Blue);
+}
+
+.accordionTitle:before {
+    content: "+";
+    font-size: 1.5em;
+    line-height: 0.8em;
+    float: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.accordionTitle:hover {
+    background-color: #EEEEF7;
+    /*cambiar*/
+}
+
+.accordionTitleActive,
+.accordionTitle.is-expanded {
+    background-color: var(--Darkblue);
+    border:none
+    /*cambiar*/
+}
+
+.accordionTitleActive:before,
+.accordionTitle.is-expanded:before {
+    transform: rotate(-225deg);
+}
+
+.accordionItem {
+    height: auto;
+    overflow: hidden;
+    max-height: 50em;
+    transition: max-height 1s;
+}
+
+@media screen and (min-width: 48em) {
+    .accordionItem {
+        max-height: 15em;
+        transition: max-height 0.5s;
+    }
+}
+
+.accordionItem.is-collapsed {
+    max-height: 0;
+}
+
+.no-js .accordionItem.is-collapsed {
+    max-height: auto;
+}
+
+.animateIn {
+    animation: accordionIn 0.45s normal ease-in-out both 1;
+}
+
+.animateOut {
+    animation: accordionOut 0.45s alternate ease-in-out both 1;
+}
+
+@keyframes accordionIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) rotateX(-60deg);
+        transform-origin: 50% 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes accordionOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.9) rotateX(-60deg);
+    }
+}
 
 /*Responsive*/
 /************ M I N - W I D T H **************/
@@ -407,8 +695,8 @@ li.nav-link a {
 
 @media screen and (min-width: 1200px) {
     /* .header {
-        height: 110vh;
-    } */
+            height: 110vh;
+        } */
 
     .contentHeader {
         height: 90%;
@@ -627,41 +915,4 @@ li.nav-link a {
     .headerText {
         height: 70%;
     }
-}
-
-
-
-/* 
-@media screen and (max-width: 1007px) {
-    .header {
-        height: 120vh;
-        gap: 1.5em;
-    }
-
-    .head{
-       margin-top: 2em;
-    }
-    .head .menuHeader {
-    
-        margin: 0 auto 0 auto;
-        gap: 1em;
-    }
-    .contentHeader{
-        gap:2.5em
-    }
-    .signIn, .singUp{
-        padding: 8px 10px;
-    
-    } 
-    .contentHeader .headerImg {
-        width: 550px;
-        height: 400px;
-    }
-} */
-
-
-main {
-    height: 100vh;
-    background-color: chartreuse;
-    margin: auto;
 }

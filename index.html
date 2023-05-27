@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="Public/Css/Includes/all.css" type="text/css">
     <link href="Public/Css/Home/Landigpage/hamburgers.css" rel="stylesheet">
     <link rel="stylesheet" href="Public/Css/Home/Landigpage/index.css" type="text/css">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <title>LearnEase</title>
 </head>
 
@@ -22,7 +23,6 @@
                         <span class="hamburger-inner"></span>
                     </span>
                 </button>
-                <!-- <img class="iconNav" src="Public/Assets/Icons/menu-icon.svg" alt="menu icon" /> -->
             </div>
             <ul class="nav-links">
                 <li class="nav-link"><a href="#inicio">Inicio</a></li>
@@ -53,8 +53,163 @@
             </div>
         </div>
     </header>
-    <main id="features">
-        <section>
+    <main class="main container" id="features">
+        <section class="features">
+            <div class="featuresText">
+                <h1 class="featureTitle">Principales Caracteristicas</h1>
+                <p class="featureP">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit maiores iure
+                    laudantium molestias culpa quas? Voluptatem amet aliquam iure consequuntur cupiditate ea eius unde
+                    animi exercitationem! Iste doloremque voluptas tenetur.</p>
+            </div>
+            <div class="contentFeature">
+                <div class="contentFeatures">
+                    <img src="Public/Assets/Icons/planning.svg" alt="imagen feature" class="imgFeatures">
+                    <h3 class="featuresTitle">Control Permanente</h3>
+                    <p class="featuresP">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ex nihil
+                        perferendis autem sunt veniam?</p>
+                </div>
+                <div class="contentFeatures">
+                    <img src="Public/Assets/Icons/website.svg" alt="image feature" class="imgFeatures">
+                    <h3 class="featuresTitle">Sistema de Widgets</h3>
+                    <p class="featuresP">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium aperiam
+                        facere reprehenderit dignissimos porro mollitia!</p>
+                </div>
+                <div class="contentFeatures">
+                    <img src="Public/Assets/Icons/speed.svg" alt="image feature" class="imgFeatures">
+                    <h3 class="featuresTitle">Mejores resultados</h3>
+                    <p class="featuresP">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi iure in
+                        exercitationem maiores velit quisquam!</p>
+                </div>
+            </div>
+
+        </section>
+        <section class="featuresContent">
+            <div class="featuresC">
+                <img src="Public/Assets/Img/chat-bot.svg" alt="image feature" class="imgFC">
+                <div class="fCText">
+                    <h2 class="fCTitle">Encuentra asistencia para tus tareas</h2>
+                    <p class="fCP">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur laboriosam, fugit
+                        quo veritatis neque ad asperiores explicabo, provident similique ducimus repellendus error modi,
+                        eius mollitia nostrum rem molestiae magni necessitatibus?</p>
+                </div>
+            </div>
+            <div class="featuresC">
+                <img src="Public/Assets/Img/learn.svg" alt="image feature" class="imgFC">
+                <div class="fCText">
+                    <h2 class="fCTitle left">Completamente configurable para ajustarse a sus necesidades</h2>
+                    <p class="fCP">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, earum fugiat
+                        facere libero vitae hic sequi doloremque impedit modi temporibus maiores eligendi, perspiciatis
+                        voluptas atque doloribus delectus? Ullam, quod consectetur.</p>
+                </div>
+            </div>
+            <div class="featuresC">
+                <img src="Public/Assets/Img/calendar.svg" alt="image feature" class="imgFC">
+                <div class="fCText">
+                    <h2 class="fCTitle">Informes automatizados & widget de alertas</h2>
+                    <p class="fCP">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, earum fugiat
+                        facere libero vitae hic sequi doloremque impedit modi temporibus maiores eligendi, perspiciatis
+                        voluptas atque doloribus delectus? Ullam, quod consectetur.</p>
+                </div>
+            </div>
+
+        </section>
+        <section class="FQA">
+            <div class="FQAtext">
+                <h1 class="FQAtitle">Principales Caracteristicas</h1>
+                <p class="FQAp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit maiores iure laudantium
+                    molestias culpa quas? Voluptatem amet aliquam iure consequuntur cupiditate ea eius unde animi
+                    exercitationem! Iste doloremque voluptas tenetur.</p>
+            </div>
+            <div class="contentFQA">
+                <div class="accordion">
+                    <dl>
+                        <dt>
+                            <a href="#accordion1" aria-expanded="false" aria-controls="accordion1"
+                                class="accordion-title accordionTitle js-accordionTrigger">Lorem ipsum dolor sit amet.?</a>
+                        </dt>
+                        <dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
+                            <p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at
+                                elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut
+                                lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor.
+                                Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum
+                                tincidunt.</p>
+                        </dd>
+                        <dt>
+                            <a href="#accordion2" aria-expanded="false" aria-controls="accordion2"
+                                class="accordion-title accordionTitle js-accordionTrigger">
+                                Lorem ipsum dolor sit amet.?</a>
+                        </dt>
+                        <dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu interdum diam. Donec
+                                interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet
+                                placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim
+                                arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius.
+                                Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
+                            <p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at
+                                elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut
+                                lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor.
+                                Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum
+                                tincidunt.</p>
+                        </dd>
+                        <dt>
+                            <a href="#accordion3" aria-expanded="false" aria-controls="accordion3"
+                                class="accordion-title accordionTitle js-accordionTrigger">
+                                Lorem ipsum dolor sit amet.?
+                            </a>
+                        </dt>
+                        <dd class="accordion-content accordionItem is-collapsed" id="accordion3" aria-hidden="true">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu interdum diam. Donec
+                                interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet
+                                placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim
+                                arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius.
+                                Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
+                            <p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at
+                                elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut
+                                lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor.
+                                Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum
+                                tincidunt.</p>
+                        </dd>
+                        <dt>
+                            <a href="#accordion4" aria-expanded="false" aria-controls="accordion3"
+                                class="accordion-title accordionTitle js-accordionTrigger">
+                                Lorem ipsum dolor sit amet.?
+                            </a>
+                        </dt>
+                        <dd class="accordion-content accordionItem is-collapsed" id="accordion4" aria-hidden="true">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu interdum diam. Donec
+                                interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet
+                                placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim
+                                arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius.
+                                Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
+                            <p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at
+                                elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut
+                                lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor.
+                                Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum
+                                tincidunt.</p>
+                        </dd>
+                        <dt>
+                            <a href="#accordion5" aria-expanded="false" aria-controls="accordion3"
+                                class="accordion-title accordionTitle js-accordionTrigger">
+                                Lorem ipsum dolor sit amet.?
+                            </a>
+                        </dt>
+                        <dd class="accordion-content accordionItem is-collapsed" id="accordion5" aria-hidden="true">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu interdum diam. Donec
+                                interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet
+                                placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim
+                                arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius.
+                                Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
+                            <p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at
+                                elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut
+                                lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor.
+                                Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum
+                                tincidunt.</p>
+                        </dd>
+                        
+                    </dl>
+                </div>
+            </div>
+
         </section>
     </main>
     <footer>
