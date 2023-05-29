@@ -39,9 +39,7 @@ footer {
     flex: 0 0 auto;
     font-family: var(--font-family);
 }
-
-/*H E A D E R*/
-
+/*--- H E A D E R ---*/
 .header {
     display: flex;
     justify-content: center;
@@ -403,7 +401,7 @@ li.nav-link a {
     width: 90%;
 }
 
-/*S E C T I O N - O N E*/
+/*--- S E C T I O N - O N E ---*/
 .features {
     display: flex;
     justify-content: center;
@@ -462,7 +460,7 @@ li.nav-link a {
     text-align: center;
 }
 
-/*S E C T I O N - T W O*/
+/*--- S E C T I O N - T W O ---*/
 
 .featuresContent {
     display: flex;
@@ -521,7 +519,7 @@ li.nav-link a {
     color: var(--Secondary);
 }
 
-/*S E C T I O N - T H R E E*/
+/*--- S E C T I O N - T H R E E ---*/
 .FQA {
     display: flex;
     flex-direction: column;
@@ -572,6 +570,7 @@ li.nav-link a {
     width: 100%;
     animation-fill-mode: forwards;
 }
+
 .accordion-content {
     background-color: #eee;
     font-size: 1em;
@@ -687,6 +686,8 @@ li.nav-link a {
 /*Responsive*/
 /************ M I N - W I D T H **************/
 @media screen and (min-width: 1520px) {
+
+    /*--- H E A D E R ----*/
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop1800.svg");
         height: 110vh;
@@ -698,6 +699,7 @@ li.nav-link a {
 }
 
 @media screen and (min-width: 1200px) {
+    /*--- H E A D E R ----*/
     /* .header {
             height: 110vh;
         } */
@@ -724,6 +726,7 @@ li.nav-link a {
 @media screen and (max-width: 1200px) {
 
     /*+1200px pantallas grades*/
+    /*--- H E A D E R ----*/
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop1300.svg");
         background-size: cover;
@@ -771,6 +774,7 @@ li.nav-link a {
 @media screen and (max-width: 993px) {
 
     /*Laptops*/
+    /*--- H E A D E R ----*/
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop992.svg");
         background-size: cover;
@@ -818,11 +822,48 @@ li.nav-link a {
         /* Arriba | Derecha | Abajo | Izquierda */
         margin: 2em 0 5em 0;
     }
+
+    /*--- S E C T I O N - O N E ----*/
+    .features {
+        gap: 0em;
+    }
+
+    .featureTitle {
+        font-size: 1.875em;
+
+    }
+
+    /*--- S E C T I O N - T W O ---*/
+    .featuresC {
+        gap: 0.5em;
+    }
+
+    .fCText {
+        width: 40%;
+
+    }
+
+    .fCTitle {
+        text-align: center;
+        font-size: 1.875em;
+    }
+
+    .imgFC {
+        width: 60%;
+        margin: auto 0 auto 0;
+    }
+
+    /*--- S E C T I O N - T H R E E ----*/
+    .FQAtitle {
+        font-size: 1.875em;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
 
     /*Tables*/
+    /*--- H E A D E R ---*/
     .header {
         background-image: url("../../../../Public/Assets/Img/backgroundTop768.svg");
     }
@@ -854,6 +895,62 @@ li.nav-link a {
         /* Arriba | Derecha | Abajo | Izquierda */
         margin: 0.1em 0 0em 0;
     }
+
+    /*--- S E C T I O N - O N E ----*/
+    .contentFeature {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        gap: 2.5em;
+        margin-top: 3em;
+        border: 1px solid greenyellow;
+    }
+
+    .imgFeatures {
+        margin: auto 1em auto 0;
+        border: 1px solid rgb(255, 95, 47);
+    }
+
+    .contentFeatures {
+        display: flex;
+        flex-direction: row-reverse;
+        border: 1px solid greenyellow;
+        gap: 1em;
+    }
+
+    .featuresTitle {
+        text-align: left;
+        margin: 0 0 0 1em;
+    }
+
+    .featuresP {
+        text-align: left;
+        margin: 0 0 1em 1em;
+    }
+
+
+    /*--- S E C T I O N - T W O ---*/
+    .featuresC {
+        flex-direction: column;
+        width: 100%;
+    }
+    .featuresC:nth-child(2) {
+        flex-direction: inherit;
+    }
+    .imgFC{
+        width: 90%;
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+    }
+    .fCText{
+        width: 90%;
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+    }
+
+
 
 }
 
@@ -903,6 +1000,19 @@ li.nav-link a {
         margin-right: auto;
         text-decoration: none;
         color: var(--White);
+    }
+
+    
+    /*--- S E C T I O N - O N E ----*/
+
+    .featureTitle {
+        text-align: center;
+
+    }
+
+    /*--- S E C T I O N - T H R E E ----*/
+    .FQAtitle {
+        text-align: center;
     }
 
 }
