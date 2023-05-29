@@ -74,69 +74,67 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // Aplica el efecto ScrollReveal a las clases deseadas
   applyScrollReveal('.contentHeader');
   applyScrollReveal('.features');
-  applyScrollReveal('.featuresContent');
+  applyScrollReveal('.one');
+  applyScrollReveal('.two');
+  applyScrollReveal('.three');
   applyScrollReveal('.FQA');
   // También puedes aplicarlo a otras clases llamando la función applyScrollReveal con la clase correspondiente
   // applyScrollReveal('.otraClase');
 });
 
-//acordion
+//acordion 
 (function () {
-  var d = document,
-    accordionToggles = d.querySelectorAll('.js-accordionTrigger'),
-    setAria,
-    setAccordionAria,
-    switchAccordion,
-    touchSupported = ('ontouchstart' in window),
-    pointerSupported = ('pointerdown' in window);
+  const accordionToggles = document.querySelectorAll('.js-accordionTrigger');
+  const touchSupported = ('ontouchstart' in window);
+  const pointerSupported = ('pointerdown' in window);
 
-  skipClickDelay = function (e) {
-    e.preventDefault();
-    e.target.click();
-  }
+  const skipClickDelay = function (e) {
+      e.preventDefault();
+      e.target.click();
+  };
 
-  setAriaAttr = function (el, ariaType, newProperty) {
-    el.setAttribute(ariaType, newProperty);
+  const setAriaAttr = function (el, ariaType, newProperty) {
+      el.setAttribute(ariaType, newProperty);
   };
-  setAccordionAria = function (el1, el2, expanded) {
-    switch (expanded) {
-      case "true":
-        setAriaAttr(el1, 'aria-expanded', 'true');
-        setAriaAttr(el2, 'aria-hidden', 'false');
-        break;
-      case "false":
-        setAriaAttr(el1, 'aria-expanded', 'false');
-        setAriaAttr(el2, 'aria-hidden', 'true');
-        break;
-      default:
-        break;
-    }
-  };
-  //function
-  switchAccordion = function (e) {
-    console.log("triggered");
-    e.preventDefault();
-    var thisAnswer = e.target.parentNode.nextElementSibling;
-    var thisQuestion = e.target;
-    if (thisAnswer.classList.contains('is-collapsed')) {
-      setAccordionAria(thisQuestion, thisAnswer, 'true');
-    } else {
-      setAccordionAria(thisQuestion, thisAnswer, 'false');
-    }
-    thisQuestion.classList.toggle('is-collapsed');
-    thisQuestion.classList.toggle('is-expanded');
-    thisAnswer.classList.toggle('is-collapsed');
-    thisAnswer.classList.toggle('is-expanded');
 
-    thisAnswer.classList.toggle('animateIn');
+  const setAccordionAria = function (el1, el2, expanded) {
+      switch (expanded) {
+          case "true":
+              setAriaAttr(el1, 'aria-expanded', 'true');
+              setAriaAttr(el2, 'aria-hidden', 'false');
+              break;
+          case "false":
+              setAriaAttr(el1, 'aria-expanded', 'false');
+              setAriaAttr(el2, 'aria-hidden', 'true');
+              break;
+          default:
+              break;
+      }
   };
-  for (var i = 0, len = accordionToggles.length; i < len; i++) {
-    if (touchSupported) {
-      accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
-    }
-    if (pointerSupported) {
-      accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
-    }
-    accordionToggles[i].addEventListener('click', switchAccordion, false);
+
+  const switchAccordion = function (e) {
+      console.log("triggered");
+      e.preventDefault();
+      const thisAnswer = e.target.parentNode.nextElementSibling;
+      const thisQuestion = e.target;
+      const isCollapsed = thisAnswer.classList.contains('is-collapsed');
+
+      setAccordionAria(thisQuestion, thisAnswer, isCollapsed ? 'true' : 'false');
+      thisQuestion.classList.toggle('is-collapsed');
+      thisQuestion.classList.toggle('is-expanded');
+      thisAnswer.classList.toggle('is-collapsed');
+      thisAnswer.classList.toggle('is-expanded');
+      thisAnswer.classList.toggle('animateIn');
+  };
+
+  for (let i = 0; i < accordionToggles.length; i++) {
+      if (touchSupported) {
+          accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
+      }
+      if (pointerSupported) {
+          accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
+      }
+      accordionToggles[i].addEventListener('click', switchAccordion, false);
   }
 })();
+
