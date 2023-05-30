@@ -843,6 +843,9 @@ li.nav-link a {
 }
 
 .boxInput {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     width: 100%;
 }
 
@@ -863,13 +866,20 @@ li.nav-link a {
     border: 3px solid var(--Orange);
 }
 
+.iconSend{
+    color: var(--Orange);
+    height: 100%;
+    margin: auto;
+    font-size: 2.2em;
+    border: 1px solid black;
+}
 .iconSend:hover{
     opacity: 0.8;
 }
-.iconSend img{
+/* .iconSend img{
     margin: 0 0 -1em 0;
     height: 42px;
-}
+} */
 
 /*Responsive*/
 /************ M I N - W I D T H **************/
