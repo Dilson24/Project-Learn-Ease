@@ -1397,11 +1397,8 @@ li.nav-link a {
     .headerText {
         height: 70%;
     }
-
-    .time {
-        position: initial;
-        right: initial;
-        margin-top: initial;
-    }
     /*---F O O T E R ---*/
+    .imgFooter {
+        width: 130px;
+    }
 }

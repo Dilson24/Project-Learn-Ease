@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
   applyScrollReveal('.two');
   applyScrollReveal('.three');
   applyScrollReveal('.FQA');
+  applyScrollReveal('.comments');
+  applyScrollReveal('.containerComments');
+  applyScrollReveal('.footerContact');
   // También puedes aplicarlo a otras clases llamando la función applyScrollReveal con la clase correspondiente
   // applyScrollReveal('.otraClase');
 });
