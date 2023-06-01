@@ -734,7 +734,8 @@ li.nav-link a {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto 0 auto;
     padding: 1em;
     gap: 1em;
     border-radius: 0.625em;
@@ -862,24 +863,100 @@ li.nav-link a {
 .boxInput input::placeholder {
     color: var(--Secondary);
 }
-.boxInput input:focus{
+
+.boxInput input:focus {
     border: 3px solid var(--Orange);
 }
 
-.iconSend{
+.iconSend {
     color: var(--Orange);
     height: 100%;
     margin: auto;
     font-size: 2.2em;
     border: 1px solid black;
 }
-.iconSend:hover{
+
+.iconSend:hover {
     opacity: 0.8;
 }
-/* .iconSend img{
-    margin: 0 0 -1em 0;
-    height: 42px;
-} */
+
+.line {
+    width: 98%;
+    height: 2px;
+    margin: 1em auto 0 auto;
+    background: var(--Secondary);
+}
+
+.footerContact {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.imgFooter {
+    height: 2.5em;
+    object-fit: contain;
+    width: auto;
+}
+
+.socialMedia {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    height: 2.188em;
+    margin: auto 0 auto 0;
+}
+
+.socialMedia i {
+    font-size: 2.188em;
+    color: var(--Secondary);
+}
+
+.facebook i:hover {
+    color: #FFFFFF;
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.instagram i:hover {
+    background: linear-gradient(45deg,
+            hsl(44deg 99% 73%) 0%,
+            hsl(38deg 97% 66%) 8%,
+            hsl(32deg 96% 60%) 17%,
+            hsl(26deg 96% 55%) 25%,
+            hsl(9deg 95% 62%) 33%,
+            hsl(349deg 84% 59%) 42%,
+            hsl(333deg 68% 50%) 50%,
+            hsl(321deg 77% 45%) 58%,
+            hsl(307deg 71% 42%) 67%,
+            hsl(283deg 61% 47%) 75%,
+            hsl(268deg 56% 52%) 83%,
+            hsl(252deg 58% 57%) 92%,
+            hsl(235deg 61% 57%) 100%);
+    color: #fff;
+    border-radius: 0.438em;
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.github i:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 0.625em;
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+}
+.linkedin i:hover{
+    color: #FFFFFF;
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+}
+.contact-us{
+    font-size: 0.75em;
+    margin: 0 auto 0 auto;
+    color: var(--Secondary);
+}
 
 /*Responsive*/
 /************ M I N - W I D T H **************/
@@ -1056,6 +1133,11 @@ li.nav-link a {
         font-size: 1.875em;
     }
 
+    /*--- F O O T E R ---*/
+    .commentsTitle{
+        font-size: 1.875em;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -1151,6 +1233,18 @@ li.nav-link a {
         margin: auto;
     }
 
+    /*--- F O O T E R ---*/
+    .footer{
+        background-image: url("../../../../Public/Assets/Img/backgroundBottom768.svg");
+        background-size: cover;
+    }
+    .footerContent{
+        margin-top: 5em;
+        
+    }
+    .containerComments{
+        width: 100%;
+    }
 
 
 }
@@ -1160,9 +1254,7 @@ li.nav-link a {
     /*Moviles hasta los 320px*/
     .buttonsLogin .signUp {
         display: none;
-
     }
-
     .contentImg {
         width: 100%;
         height: 40%;
@@ -1216,6 +1308,17 @@ li.nav-link a {
         text-align: center;
     }
 
+    /*---F O O T E R ---*/
+    .socialMedia{
+        gap:1em;
+        height: 1.5em;
+    }
+    .socialMedia i {
+        font-size: 1.5em;
+    }
+    .contact-us{
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 367px) {
