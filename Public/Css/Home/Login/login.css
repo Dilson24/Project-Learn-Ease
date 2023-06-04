@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --Darkblue: #172455;
+    --Blue: #0EA5C6;
+    --Orange: #ff7514;
+    --White: #EEEEF7;
+    --Maintext: var(--Darkblue);
+    --Secondary: #8794BA;
+    --BackgroundCards: #D9D9D9;
+    --ShadowCards: 0px 18px 50px -15px rgba(0, 0, 0, 0.25);
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--White);
+    font-family: var(--font-family);
+}
+
+.main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Darkblue);
+    max-height: 420px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--ShadowCards);
+    margin: auto 0 auto 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px;
+}
+
+/*checkbox to switch from sign up to login*/
+#chk {
+    display: none;
+}
+
+/*Login*/
+.login {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.login label {
+    margin: 25% 0 5%;
+}
+
+label {
+    color: var(--Orange);
+    font-size: 2rem;
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+/*Register*/
+.register {
+    background: var(--Orange);
+    border-radius: 60% / 10%;
+    transform: translateY(5%);
+    transition: .8s ease-in-out;
+}
+
+.register label {
+    color: var(--Darkblue);
+    transform: scale(.6);
+}
+
+#chk:checked~.register {
+    transform: translateY(-60%);
+}
+
+#chk:checked~.register label {
+    transform: scale(1);
+    margin: 10% 0 5%;
+}
+
+#chk:checked~.login label {
+    transform: scale(.6);
+    margin: 5% 0 5%;
+}
+
+.inputBox,
+.inputBox1 {
+    position: relative;
+    width: 250px;
+}
+
+.inputBox input,
+.inputBox1 input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    color: #000;
+    font-size: 1em;
+    background: transparent;
+    border-left: 2px solid var(--Blue);
+    border-bottom: 2px solid var(--Blue);
+    transition: 0.1s;
+    border-bottom-left-radius: 8px;
+}
+
+.inputBox span,
+.inputBox1 span {
+    margin-top: 5px;
+    position: absolute;
+    left: 0;
+    transform: translateY(-4px);
+    margin-left: 10px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 12px;
+    color: #000;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 3px;
+    border-radius: 8px;
+}
+
+.inputBox input:valid~span,
+.inputBox input:focus~span {
+    transform: translateX(113px) translateY(-15px);
+    font-size: 0.8em;
+    padding: 5px 10px;
+    background: #000;
+    letter-spacing: 0.2em;
+    color: #fff;
+    border: 2px;
+}
+
+.inputBox1 input:valid~span,
+.inputBox1 input:focus~span {
+    transform: translateX(156px) translateY(-15px);
+    font-size: 0.8em;
+    padding: 5px 10px;
+    background: #000;
+    letter-spacing: 0.2em;
+    color: #fff;
+    border: 2px;
+}
+
+.inputBox input:valid,
+.inputBox input:focus,
+.inputBox1 input:valid,
+.inputBox1 input:focus {
+    border: 2px solid #000;
+    border-radius: 8px;
+}
+
+.enter {
+    height: 45px;
+    width: 100px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    cursor: pointer;
+    background-color: transparent;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 3em;
+}
+
+.enter:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
