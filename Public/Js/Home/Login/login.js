@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         chk.checked = true;
         document.title = 'Register';
         mainElement.style.maxHeight = '790px';
-        mainElement.style.margin ='0.5em 0 0.5em 0';
+        mainElement.style.margin = '0.5em 0 0.5em 0';
         bodyElement.style.height = 'auto';
 
     }
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             history.pushState(null, '', '?register=newUser');
             document.title = 'Register';
             mainElement.style.maxHeight = '790px';
-            mainElement.style.margin ='0.5em 0 0.5em 0';
+            mainElement.style.margin = '0.5em 0 0.5em 0';
             bodyElement.style.height = 'auto';
         } else {
             history.pushState(null, '', window.location.pathname);
@@ -32,6 +32,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/*Alerts control*/
+setTimeout(function() {
+    document.getElementById('error-alert').style.display = 'none';
+}, 4000);
+
+const closeButton = document.getElementById('close-btn');
+if (closeButton) {
+    closeButton.addEventListener('click', function() {
+        document.getElementById('error-alert').style.display = 'none';
+        history.pushState(null, '', window.location.pathname);
+    });
+}
 /*Input controls*/
 const dateInput = document.querySelector('#boxdate');
 
@@ -48,8 +60,7 @@ dateInput.addEventListener('blur', function () {
 
 
 
-
-/*Test*/
+/*Api county and city*/
 $(document).ready(function () {
     //-------------------------------SELECT CASCADING-------------------------//
     var selectedCountry = (selectedRegion = selectedCity = "");
