@@ -26,25 +26,105 @@ document.addEventListener("DOMContentLoaded", function () {
             history.pushState(null, '', window.location.pathname);
             document.title = originalTitle;
             mainElement.style.maxHeight = '350px';
-            mainElement.style.margin ='auto 0 auto 0';
+            mainElement.style.margin = 'auto 0 auto 0';
             bodyElement.style.height = '100vh';
         }
     });
 });
 
-/*Alerts control*/
-setTimeout(function() {
-    document.getElementById('error-alert').style.display = 'none';
-}, 4000);
+document.addEventListener('DOMContentLoaded', function () {
+    // Obtener referencia al elemento con la clase "errorAlertL"
+    const errorAlertL = document.getElementById('errorAlertL');
 
-const closeButton = document.getElementById('close-btn');
-if (closeButton) {
-    closeButton.addEventListener('click', function() {
-        document.getElementById('error-alert').style.display = 'none';
-        history.pushState(null, '', window.location.pathname);
-    });
+    // Verificar si el elemento existe en el DOM
+    if (errorAlertL) {
+        // Aplicar las líneas de código solo si el elemento existe
+        setTimeout(function () {
+            errorAlertL.style.display = 'none';
+            history.pushState(null, '', window.location.pathname);
+        }, 4000);
+
+        // Obtener referencia al botón closeButton
+        const closeButton = document.getElementById('closeBtn');
+
+        // Agregar el controlador de evento para el clic en el botón closeButton
+        closeButton.addEventListener('click', function () {
+            // Ocultar el elemento
+            errorAlertL.style.display = 'none';
+            history.pushState(null, '', window.location.pathname);
+        });
+    }
+});
+
+
+
+
+
+// Obtener referencias a los elementos de mensaje de éxito y error
+const successAlert = document.getElementById('successAlertR');
+const errorAlert = document.getElementById('errorAlertR');
+
+// Función para mostrar el mensaje de éxito
+function showSuccessMessage() {
+    successAlert.style.display = 'block';
+    errorAlert.style.display = 'none';
 }
-/*Input controls*/
+
+// Función para mostrar el mensaje de error
+function showErrorMessage() {
+    errorAlert.style.display = 'block';
+    successAlert.style.display = 'none';
+}
+function hideErrorMessage() {
+    errorAlert.style.display = 'none';
+}
+// function hideSuccessMessage() {
+//     errorAlert.style.display = 'none';
+// }
+// Obtener referencia al botón de cierre
+const closeButton = document.getElementById('closeBtnR');
+
+
+
+// Función de validación y envío del formulario
+function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = document.getElementById('formRegister');
+    const inputs = form.querySelectorAll('input[name], select[name]');
+
+    let hasEmptyFields = false;
+
+    inputs.forEach(input => {
+        const value = input.value.trim();
+        if (value === '') {
+            hasEmptyFields = true;
+            return;
+        }
+    });
+
+    if (hasEmptyFields) {
+        showErrorMessage();
+        // Agregar el controlador de evento para el clic en el botón closeButton
+        closeButton.addEventListener('click', hideErrorMessage);
+        return;
+    }
+    showSuccessMessage();
+    setTimeout(function () {
+        form.submit();
+    }, 4000);
+
+}
+
+// Obtener referencia al botón SignUpBtn
+const signUpBtn = document.querySelector('.SignUpBtn');
+
+// Agregar el controlador de evento para el clic en el botón SignUpBtn
+signUpBtn.addEventListener('click', handleSubmit);
+
+
+
+/*inputs control*/
 const dateInput = document.querySelector('#boxdate');
 
 dateInput.addEventListener('click', function () {
@@ -57,6 +137,7 @@ dateInput.addEventListener('blur', function () {
     }
 });
 
+// Campos de entrada y contenedores
 
 
 
