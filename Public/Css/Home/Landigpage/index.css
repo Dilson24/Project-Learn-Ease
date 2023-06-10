@@ -111,6 +111,9 @@ footer {
     right: -10px;
     top: -9px;
 }
+.barsNav, .barsNav::before, .barsNav::after {
+    background-color:  var(--Orange) !important; 
+}
 
 ul.nav-links {
     display: flex;
