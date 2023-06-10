@@ -1,3 +1,12 @@
+<?php
+session_start();
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+    // El usuario no ha iniciado sesión o no tiene el rol de administrador
+    header('Location: ../../../App/View/User/login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../Public/Css/Includes/all.css" type="text/css">
+    <link rel="stylesheet" href="../../../Public/Css/Includes/all.css" type="text/css">
     <link href="../../../Public/Css/Home/Landigpage/hamburgers.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../Public/Css/System/Admin/admin.css">
     <title>Panel Admin</title>
@@ -92,10 +101,14 @@
         <div class="profile_content">
             <div class="profile">
                 <div class="profile_details">
-                    <img src="https://vz.cnwimg.com/wp-content/uploads/2014/01/alex.jpg?x86007" alt="">
+                    <img src="../../../<?php echo $_SESSION['profileImage'];?>" alt="image profile">
                     <div class="name_job">
-                        <div class="name">Name</div>
-                        <div class="job">Role</div>
+                        <div class="name">
+                            <?php echo $_SESSION['name']; ?>
+                        </div>
+                        <div class="job">
+                            <?php echo $_SESSION['role']; ?>
+                        </div>
                     </div>
                 </div>
                 <i class='bx bx-log-out' id="log_out"></i>
@@ -105,20 +118,7 @@
     <div class="home_content">
         <div class="text">Home Content Here...</div>
     </div>
-    <script>
-        let btn = document.querySelector("#btn");
-        let sidebar = document.querySelector(".sidebar");
-        let searchBtn = document.querySelector(".bx-search");
-        let hamburger = document.querySelector(".hamburger");
-
-        btn.onclick = function () {
-            hamburger.classList.toggle("is-active");
-            sidebar.classList.toggle("active");
-        }
-        searchBtn.onclick = function () {
-            sidebar.classList.toggle("active");
-        }
-    </script>
+    <script src="../../../Public/Js/System/Admin/admin.js"></script>
 
 </body>
 

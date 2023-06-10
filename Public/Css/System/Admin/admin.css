@@ -19,6 +19,7 @@
     --Secondary: #8794BA;
     --BackgroundCards: #D9D9D9;
     --ShadowCards: 0px 18px 50px -15px rgba(0, 0, 0, 0.25);
+    --ShadowCards2:-5px -5px 15px 5px rgba(0, 0, 0, 0.25), 5px 5px 15px 7px rgba(0, 0, 0, 0.25);
     --font-family: 'Roboto', sans-serif;
 }
 
@@ -35,7 +36,8 @@ body {
     left: 0;
     height: 100%;
     width: 60px;
-    background: #11101d;
+    /* background: #11101d; */
+    background: var(--Darkblue);
     padding: 2px 6px;
     transition: all 0.5s ease;
 }
@@ -66,7 +68,7 @@ body {
 
 .sidebar #btn {
     position: absolute !important;
-    color: #fff;
+    color: var(--White);
     left: 50% !important;
     top: 2px;
     padding: 0 !important;
@@ -87,9 +89,9 @@ body {
 
 .sidebar #btn:hover {
     opacity: 1 !important;
-    background: #fff;
+    background:var(--White);
     border-radius: 12px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--ShadowCards);
     transition: 0s;
 
 }
@@ -132,10 +134,11 @@ body {
     border-radius: 6px;
     height: 35px;
     width: 122px;
-    background: #fff;
+    background: var(--White);
+    color: var(--Orange);
     line-height: 35px;
     text-align: center;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--ShadowCards2);
     transition: 0s;
     opacity: 0;
     pointer-events: none;
@@ -186,7 +189,7 @@ body {
 }
 
 .sidebar ul li a {
-    color: #fff;
+    color: var(--White);
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -196,8 +199,8 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background: #fff;
-    color: #11101d;
+    background:var(--White);
+    color: var(--Orange);
 }
 
 .sidebar ul li i {
@@ -231,7 +234,7 @@ body {
     position: relative;
     padding: 10px 6px;
     height: 60px;
-    background: #1d1b31;
+    background: #11101d;
 }
 
 .profile_content .profile .profile_details {
@@ -251,7 +254,7 @@ body {
     height: 40px;
     width: 40px;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 100%;
 }
 
 .profile .profile_details .name_job {
@@ -280,8 +283,8 @@ body {
 }
 
 .profile #log_out:hover {
-    background: #fff;
-    color: #11101d;
+    background:var(--White);
+    color: var(--Orange);
 }
 
 .sidebar.active .profile #log_out {
