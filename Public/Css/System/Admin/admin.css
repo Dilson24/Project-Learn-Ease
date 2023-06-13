@@ -19,15 +19,12 @@
     --Secondary: #8794BA;
     --BackgroundCards: #D9D9D9;
     --ShadowCards: 0px 18px 50px -15px rgba(0, 0, 0, 0.25);
-    --ShadowCards2:-5px -5px 15px 5px rgba(0, 0, 0, 0.25), 5px 5px 15px 7px rgba(0, 0, 0, 0.25);
+    --ShadowCards2: -5px -5px 15px 5px rgba(0, 0, 0, 0.25), 5px 5px 15px 7px rgba(0, 0, 0, 0.25);
     --font-family: 'Roboto', sans-serif;
 }
 
 body {
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
+    background: var(--White);
 }
 
 .sidebar {
@@ -36,10 +33,10 @@ body {
     left: 0;
     height: 100%;
     width: 60px;
-    /* background: #11101d; */
     background: var(--Darkblue);
     padding: 2px 6px;
     transition: all 0.5s ease;
+    z-index: 999;
 }
 
 .sidebar.active {
@@ -82,6 +79,7 @@ body {
     top: -3px !important;
     transform: translate3d(-6px, 0, 0) rotate(-45deg) scale(0.7, 1) !important;
 }
+
 .hamburger--arrow.is-active .barsNav::after {
     top: 3px !important;
     transform: translate3d(-6px, 0, 0) rotate(45deg) scale(0.7, 1) !important;
@@ -89,7 +87,7 @@ body {
 
 .sidebar #btn:hover {
     opacity: 1 !important;
-    background:var(--White);
+    background: var(--White);
     border-radius: 12px;
     box-shadow: var(--ShadowCards);
     transition: 0s;
@@ -107,7 +105,8 @@ body {
     width: 20px;
     background-color: var(--Orange) !important;
 }
-.boxNav{
+
+.boxNav {
     left: 10px;
 }
 
@@ -199,7 +198,7 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background:var(--White);
+    background: var(--White);
     color: var(--Orange);
 }
 
@@ -283,7 +282,7 @@ body {
 }
 
 .profile #log_out:hover {
-    background:var(--White);
+    background: var(--White);
     color: var(--Orange);
 }
 
@@ -291,10 +290,11 @@ body {
     left: 88%;
 }
 
+/*home content*/
 .home_content {
     position: absolute;
     left: 60px;
-    width: calc(100%-60px);
+    width: calc(100% - 60px);
 }
 
 .sidebar.active~.home_content {
@@ -302,9 +302,141 @@ body {
     width: calc(100% - 240px);
 }
 
-.home_content .text {
-    font-size: 25px;
-    font-weight: 500;
-    color: #1d1b31;
-    margin: 12px;
+/*sections home*/
+.showData {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.userRegister {
+    text-align: center;
+    color: var(--Darkblue);
+    margin: 0.5em auto 0.5em auto;
+}
+
+.viewData {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.showRow,
+.searchRow {
+    display: flex;
+    flex-direction: column;
+}
+
+.formLabel {
+    color: var(--Secondary);
+    margin-bottom: 0.5em;
+}
+
+.formControl {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--Orange);
+}
+
+#table {
+    width: 90%;
+    margin: 0 auto 0 auto;
+    border-collapse: collapse;
+}
+
+#table th,
+#table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--Darkblue);
+}
+
+#table .myHead th {
+    background-color: var(--Orange);
+    color: var(--Darkblue);
+    text-transform: uppercase;
+}
+
+#table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.iconsO {
+    text-align: center !important;
+    margin: 0.5em auto 0.5em auto;
+}
+
+.iconsO i {
+    margin: auto 0.5em auto 0.5em;
+    font-size: 20px;
+    color: var(--Darkblue);
+}
+
+.iconsO i:hover {
+    padding: 0.1em;
+    color: var(--Orange);
+    transform: scale(1.1);
+    transition: transform 0.5ms ease-in-out;
+}
+
+
+
+
+.controller {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pager,
+.pagination {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pager li {
+    margin: 0 5px;
+}
+
+.pagination li a {
+    color: var(--Darkblue);
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid var(--Darkblue);
+    border-radius: 3px;
+}
+
+.pagination li a:hover {
+    background-color: var(--Orange);
+    color: var(--Darkblue);
+}
+
+.pagination .active a {
+    background-color: var(--Orange);
+    color: var(--Darkblue);
+}
+
+.prev,
+.next {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: var(--Darkblue);
+    color: var(--Orange);
+    border-radius: 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: var(--Orange);
+    color: var(--Darkblue);
 }

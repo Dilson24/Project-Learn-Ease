@@ -78,9 +78,7 @@ function showErrorMessage() {
 function hideErrorMessage() {
     errorAlert.style.display = 'none';
 }
-// function hideSuccessMessage() {
-//     errorAlert.style.display = 'none';
-// }
+
 // Obtener referencia al botón de cierre
 const closeButton = document.getElementById('closeBtnR');
 
@@ -107,6 +105,13 @@ function handleSubmit(event) {
         showErrorMessage();
         // Agregar el controlador de evento para el clic en el botón closeButton
         closeButton.addEventListener('click', hideErrorMessage);
+        if (errorAlert) {
+            // Aplicar las líneas de código solo si el elemento existe
+            setTimeout(function () {
+                errorAlert.style.display = 'none';
+            }, 4000);
+    
+        }
         return;
     }
     showSuccessMessage();

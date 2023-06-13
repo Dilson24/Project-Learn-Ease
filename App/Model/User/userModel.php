@@ -1,46 +1,59 @@
-<!--Ejemplo de modelo para usuario -->
-
 <?php
 
-class UserModel {
-    private $db;
+class UserModel
+{
+    private $conn;
 
-    public function __construct() {
-        $this->db = new PDO("mysql:host=localhost;dbname=mydatabase", "username", "password");
+    public function __construct($conn)
+    {
+        $this->conn = $conn;
     }
 
-    // Obtener todos los usuarios
-    public function getAllUsers() {
-        $stmt = $this->db->prepare("SELECT * FROM users");
+    public function getUserByEmail($email)
+    {
+        $stmt = $this->conn->prepare('SELECT * FROM user WHERE Email = :email');
+        $stmt->bindParam(':email', $email);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetch();
     }
 
-    // Obtener un usuario por su ID
-    public function getUserById($id) {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function getMaxUserConnectionCount($userId)
+    {
+        $stmt = $this->conn->prepare('SELECT MAX(Last_Count) AS MaxCount FROM user_connections WHERE User_ID = :userId');
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result['MaxCount'] ? $result['MaxCount'] : 0;
     }
 
-    // Crear un nuevo usuario
-    public function createUser($name, $email, $password) {
-        $stmt = $this->db->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-        $stmt->execute([$name, $email, $password]);
-        return $this->db->lastInsertId();
+    public function insertUserConnection($userId, $lastCount)
+    {
+        $stmt = $this->conn->prepare('INSERT INTO user_connections (User_ID, Last_Login, Last_Activity, Last_Count) VALUES (:userId, NOW(), NOW(), :lastCount)');
+        $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':lastCount', $lastCount);
+        $stmt->execute();
     }
 
-    // Actualizar un usuario existente
-    public function updateUser($id, $name, $email, $password) {
-        $stmt = $this->db->prepare("UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?");
-        $stmt->execute([$name, $email, $password, $id]);
-        return $stmt->rowCount();
+    public function registerUser($name, $lastName, $dateOfBirth, $phone, $studentType, $country, $city, $email, $password, $profileImage)
+    {
+        $stmt = $this->conn->prepare('INSERT INTO user (Name, Last_Name, Date_of_Birth, Phone_Number, Student_Type_ID, Country, City, Email, Password, Profile_image, Role_ID) 
+        VALUES (:name, :lastName, :dateOfBirth, :phone, :studentType, :country, :city, :email, :password, :profileImage, 2)');
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':lastName', $lastName);
+        $stmt->bindParam(':dateOfBirth', $dateOfBirth);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':studentType', $studentType);
+        $stmt->bindParam(':country', $country);
+        $stmt->bindParam(':city', $city);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':profileImage', $profileImage);
+        $stmt->execute();
     }
 
-    // Eliminar un usuario por su ID
-    public function deleteUserById($id) {
-        $stmt = $this->db->prepare("DELETE FROM users WHERE id = ?");
-        $stmt->execute([$id]);
-        return $stmt->rowCount();
+    public function getLastInsertId()
+    {
+        return $this->conn->lastInsertId();
     }
 }
+?>
