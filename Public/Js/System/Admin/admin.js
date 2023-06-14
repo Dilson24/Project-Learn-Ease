@@ -177,7 +177,7 @@ btnDelete.forEach((icon) => {
     icon.addEventListener("click", () => {
         Swal.fire({
             title: 'Eliminar registro',
-            text: "¡Esta apunto de eliminar un registro de forma permanente!",
+            text: "¡Está a punto de eliminar un registro de forma permanente!",
             icon: 'warning',
             showCancelButton: true,
             showClass: {
@@ -188,15 +188,31 @@ btnDelete.forEach((icon) => {
             },
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Sí, eliminarlo'
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+                const userId = icon.getAttribute("data-id");
+                deleteUserId(userId); // Llamar a la función para eliminar el usuario
             }
         });
     });
 });
+
+function deleteUserId(userId) {
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            Swal.fire(
+                '¡Eliminado!',
+                'El registro ha sido eliminado.',
+                'success'
+            ).then(() => {
+                location.reload(); // Recargar la página para mostrar los cambios actualizados
+            });
+        }
+    };
+    xhr.open('POST', '../../../App/View/Admin/profileAdmin.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.send('deleteUserId=' + userId);
+}
+

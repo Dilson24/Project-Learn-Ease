@@ -14,12 +14,17 @@ class AdminController
     }
 
     //operations
-    public function read(){
+    public function read()
+    {
         return $this->adminModel->showAllUsers();
     }
-    public function delete($userId) {
+
+    public function deleteUserById($userId) {
         return $this->adminModel->deleteUser($userId);
     }
     
+    
+
+
 
 }

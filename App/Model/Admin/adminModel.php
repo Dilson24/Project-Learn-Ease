@@ -13,17 +13,13 @@ class AdminModel
         $stmt->execute();
         return $stmt->fetchAll();
     }
-
-    public function deleteUser($userId)
-    {
-        $stmt = $this->conn->prepare('DELETE FROM user WHERE User_ID = :User_ID');
-        $stmt->bindParam(':User_ID', $userId);
-        return $stmt->execute();
+    public function deleteUser($userId) {
+        $stmt = $this->conn->prepare('DELETE FROM user WHERE User_ID = :userId');
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
     }
     
-
-
-
+    
 
 }
 ?>

@@ -12,6 +12,13 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
 // Crear una instancia de AdminController
 $adminController = new AdminController($conn);
 $users = $adminController->read();
+// Procesar la solicitud de eliminación
+if (isset($_POST['deleteUserId'])) {
+    $userId = $_POST['deleteUserId'];
+    $adminController->deleteUserById($userId);
+    exit(); // Terminar la ejecución del script después de eliminar el usuario
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -197,7 +204,7 @@ $users = $adminController->read();
                             </td>
                             <td class="iconsO">
                                 <i class="fa-solid fa-pen-to-square"></i>
-                                <i class="fa-solid fa-trash" data-userid="<?php echo $userId = $user['User_ID']; ?>"></i>
+                                <i class="fa-solid fa-trash" data-id="<?php echo $user['User_ID']; ?>"></i>
                             </td>
                         </tr>
                     <?php endforeach; ?>
