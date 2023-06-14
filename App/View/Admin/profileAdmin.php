@@ -11,8 +11,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
 
 // Crear una instancia de AdminController
 $adminController = new AdminController($conn);
-
-// Obtener los datos de los usuarios llamando al método read()
 $users = $adminController->read();
 ?>
 <!DOCTYPE html>
@@ -25,7 +23,10 @@ $users = $adminController->read();
     <link rel="stylesheet" href="../../../Public/Css/Includes/all.css" type="text/css">
     <link href="../../../Public/Css/Home/Landigpage/hamburgers.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../Public/Css/System/Admin/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>Panel Admin</title>
 </head>
 
@@ -196,7 +197,7 @@ $users = $adminController->read();
                             </td>
                             <td class="iconsO">
                                 <i class="fa-solid fa-pen-to-square"></i>
-                                <i class="fa-solid fa-trash"></i>
+                                <i class="fa-solid fa-trash" data-userid="<?php echo $userId = $user['User_ID']; ?>"></i>
                             </td>
                         </tr>
                     <?php endforeach; ?>

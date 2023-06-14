@@ -17,6 +17,9 @@ class AdminController
     public function read(){
         return $this->adminModel->showAllUsers();
     }
-
+    public function delete($userId) {
+        return $this->adminModel->deleteUser($userId);
+    }
+    
 
 }

@@ -166,3 +166,37 @@ document.getElementById('log_out').addEventListener('click', function () {
     xhr.open('GET', '../../../App/View/User/loguot.php', true); // Reemplaza 'logout.php' con el nombre real del archivo que cierra la sesión
     xhr.send();
 });
+
+//Operations
+
+
+//DELETE
+
+const btnDelete = document.querySelectorAll(".fa-trash");
+btnDelete.forEach((icon) => {
+    icon.addEventListener("click", () => {
+        Swal.fire({
+            title: 'Eliminar registro',
+            text: "¡Esta apunto de eliminar un registro de forma permanente!",
+            icon: 'warning',
+            showCancelButton: true,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            },
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        });
+    });
+});
