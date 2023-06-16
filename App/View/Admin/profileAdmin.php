@@ -19,7 +19,7 @@ if (isset($_POST['deleteUserId'])) {
     exit(); // Terminar la ejecución del script después de eliminar el usuario
 }
 // Procesar la solicitud de actualización
-if (isset($_POST['updateUserId'])) {
+if (isset($_POST['updateUserId']) && $_POST['updateUserId'] === 'true') { // Verificar el valor de updateUserId) {
     $userId = $_POST['userId'];
     $name = isset($_POST['name']) ? $_POST['name'] : null;
     $lastName = isset($_POST['lastName']) ? $_POST['lastName'] : null;
@@ -30,7 +30,7 @@ if (isset($_POST['updateUserId'])) {
     $city = isset($_POST['city']) ? $_POST['city'] : null;
 
     // Realizar la actualización en la base de datos
-    $result = $adminController->updateUserById($userId, $name, $lastName, $dateOfBirth, $phoneNumber, $studentTypeId, $country, $city);
+    $result = $adminController->updateUserById($userId, $name, $lastName, $dateOfBirth, $phoneNumber, $studentType, $country, $city);
 
     // Verificar el resultado de la actualización
     if ($result) {

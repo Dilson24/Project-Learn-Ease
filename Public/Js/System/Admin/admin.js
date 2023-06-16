@@ -427,6 +427,7 @@ function updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentT
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     const params = new URLSearchParams();
+    params.append('updateUserId', true); 
     params.append('userId', userId);
     if (name) params.append('name', name);
     if (lastName) params.append('lastName', lastName);

@@ -20,61 +20,65 @@ class AdminModel
         $stmt->execute();
     }
 
-    public function updateUser($userId, $name = null, $lastName = null, $dateOfBirth = null, $phoneNumber = null, $studentTypeId = null, $country = null, $city = null)
-    {
-        $sql = 'UPDATE user SET ';
-        $params = array();
-
-        if ($name !== null) {
-            $sql .= 'Name = :name, ';
-            $params[':name'] = $name;
+    public function updateUserData($userId, $name, $lastName, $dateOfBirth, $phoneNumber, $studentType, $country, $city) {
+        // Crear una cadena para almacenar las cláusulas SET de la consulta UPDATE
+        $updateFields = "";
+    
+        // Verificar cada campo y agregarlo a la cadena si tiene un valor
+        if ($name) {
+            $updateFields .= "Name = :name, ";
         }
-
-        if ($lastName !== null) {
-            $sql .= 'Last_Name = :lastName, ';
-            $params[':lastName'] = $lastName;
+        if ($lastName) {
+            $updateFields .= "Last_Name = :lastName, ";
         }
-
-        if ($dateOfBirth !== null) {
-            $sql .= 'Date_of_Birth = :dateOfBirth, ';
-            $params[':dateOfBirth'] = $dateOfBirth;
+        if ($dateOfBirth) {
+            $updateFields .= "Date_of_Birth = :dateOfBirth, ";
         }
-
-        if ($phoneNumber !== null) {
-            $sql .= 'Phone_Number = :phoneNumber, ';
-            $params[':phoneNumber'] = $phoneNumber;
+        if ($phoneNumber) {
+            $updateFields .= "Phone_Number = :phoneNumber, ";
         }
-
-        if ($studentTypeId !== null) {
-            $sql .= 'Student_Type_ID = :studentTypeId, ';
-            $params[':studentTypeId'] = $studentTypeId;
+        if ($studentType) {
+            $updateFields .= "Student_Type_ID = :studentType, ";
         }
-
-        if ($country !== null) {
-            $sql .= 'Country = :country, ';
-            $params[':country'] = $country;
+        if ($country) {
+            $updateFields .= "Country = :country, ";
         }
-
-        if ($city !== null) {
-            $sql .= 'City = :city, ';
-            $params[':city'] = $city;
+        if ($city) {
+            $updateFields .= "City = :city, ";
         }
-
-        // Eliminar la última coma y espacio de la consulta SQL
-        $sql = rtrim($sql, ', ');
-
-        $sql .= ' WHERE User_ID = :userId';
-        $params[':userId'] = $userId;
-
-        // Ejecutar la consulta
-        $stmt = $this->conn->prepare($sql);
-        if ($stmt->execute($params)) {
-            // La consulta se ejecutó exitosamente
-            return true;
+    
+        // Eliminar la coma y el espacio final de la cadena
+        $updateFields = rtrim($updateFields, ", ");
+    
+        // Verificar si se proporcionaron datos para actualizar
+        if (!empty($updateFields)) {
+            // Consulta SQL para actualizar los datos del usuario
+            $sql = "UPDATE user SET $updateFields WHERE User_ID = :userId";
+    
+            $stmt = $this->conn->prepare($sql);
+    
+            // Vincular los parámetros
+            $stmt->bindParam(':userId', $userId);
+            if ($name) $stmt->bindParam(':name', $name);
+            if ($lastName) $stmt->bindParam(':lastName', $lastName);
+            if ($dateOfBirth) $stmt->bindParam(':dateOfBirth', $dateOfBirth);
+            if ($phoneNumber) $stmt->bindParam(':phoneNumber', $phoneNumber);
+            if ($studentType) $stmt->bindParam(':studentType', $studentType);
+            if ($country) $stmt->bindParam(':country', $country);
+            if ($city) $stmt->bindParam(':city', $city);
+    
+            if ($stmt->execute()) {
+                return true; // Actualización exitosa
+            } else {
+                return false; // Error al actualizar
+            }
         } else {
-            // Hubo un error en la ejecución de la consulta
-            return false;
+            return false; // No se proporcionaron datos para actualizar
         }
     }
+    
+    
+
+    
 }
 ?>
