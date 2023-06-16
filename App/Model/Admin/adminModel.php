@@ -20,18 +20,18 @@ class AdminModel
         $stmt->execute();
     }
 
-    public function updateUserData($userId, $name, $lastName, $dateOfBirth, $phoneNumber, $studentType, $country, $city) {
+    public function updateUserData($userId, $nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phoneNumber, $studentType, $country, $city) {
         // Crear una cadena para almacenar las cláusulas SET de la consulta UPDATE
         $updateFields = "";
     
         // Verificar cada campo y agregarlo a la cadena si tiene un valor
-        if ($name) {
+        if ($nameFormatted) {
             $updateFields .= "Name = :name, ";
         }
-        if ($lastName) {
+        if ($lastNameFormatted) {
             $updateFields .= "Last_Name = :lastName, ";
         }
-        if ($dateOfBirth) {
+        if ($dateOfBirthFormatted) {
             $updateFields .= "Date_of_Birth = :dateOfBirth, ";
         }
         if ($phoneNumber) {
@@ -59,9 +59,9 @@ class AdminModel
     
             // Vincular los parámetros
             $stmt->bindParam(':userId', $userId);
-            if ($name) $stmt->bindParam(':name', $name);
-            if ($lastName) $stmt->bindParam(':lastName', $lastName);
-            if ($dateOfBirth) $stmt->bindParam(':dateOfBirth', $dateOfBirth);
+            if ($nameFormatted) $stmt->bindParam(':name', $nameFormatted);
+            if ($lastNameFormatted) $stmt->bindParam(':lastName', $lastNameFormatted);
+            if ($dateOfBirthFormatted) $stmt->bindParam(':dateOfBirth', $dateOfBirthFormatted);
             if ($phoneNumber) $stmt->bindParam(':phoneNumber', $phoneNumber);
             if ($studentType) $stmt->bindParam(':studentType', $studentType);
             if ($country) $stmt->bindParam(':country', $country);

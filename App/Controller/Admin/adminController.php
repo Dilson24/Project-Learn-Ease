@@ -23,9 +23,9 @@ class AdminController
         return $this->adminModel->deleteUser($userId);
     }
 
-    public function updateUserById($userId, $name, $lastName, $dateOfBirth, $phoneNumber, $studentType, $country, $city)
+    public function updateUserById($userId, $nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phoneNumber, $studentType, $country, $city)
     {
-        $result = $this->adminModel->updateUserData($userId, $name, $lastName, $dateOfBirth, $phoneNumber, $studentType, $country, $city);
+        $result = $this->adminModel->updateUserData($userId, $nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phoneNumber, $studentType, $country, $city);
         return $result;
     }
     

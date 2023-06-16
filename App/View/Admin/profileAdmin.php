@@ -19,7 +19,7 @@ if (isset($_POST['deleteUserId'])) {
     exit(); // Terminar la ejecución del script después de eliminar el usuario
 }
 // Procesar la solicitud de actualización
-if (isset($_POST['updateUserId']) && $_POST['updateUserId'] === 'true') { // Verificar el valor de updateUserId) {
+if (isset($_POST['updateUserId']) && $_POST['updateUserId'] === 'true') {
     $userId = $_POST['userId'];
     $name = isset($_POST['name']) ? $_POST['name'] : null;
     $lastName = isset($_POST['lastName']) ? $_POST['lastName'] : null;
@@ -29,8 +29,13 @@ if (isset($_POST['updateUserId']) && $_POST['updateUserId'] === 'true') { // Ver
     $country = isset($_POST['country']) ? $_POST['country'] : null;
     $city = isset($_POST['city']) ? $_POST['city'] : null;
 
+    // Aplicar el formato necesario a los campos
+    $nameFormatted = ucfirst(strtolower($name));
+    $lastNameFormatted = ucfirst(strtolower($lastName));
+    $dateOfBirthFormatted = date('Y-m-d', strtotime(str_replace('/', '-', $dateOfBirth)));
+
     // Realizar la actualización en la base de datos
-    $result = $adminController->updateUserById($userId, $name, $lastName, $dateOfBirth, $phoneNumber, $studentType, $country, $city);
+    $result = $adminController->updateUserById($userId, $nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phoneNumber, $studentTypeId, $country, $city);
 
     // Verificar el resultado de la actualización
     if ($result) {
@@ -43,6 +48,7 @@ if (isset($_POST['updateUserId']) && $_POST['updateUserId'] === 'true') { // Ver
 
     exit(); // Terminar la ejecución del script después de procesar la actualización
 }
+
 
 
 ?>
@@ -247,6 +253,23 @@ if (isset($_POST['updateUserId']) && $_POST['updateUserId'] === 'true') { // Ver
                 </ul>
             </div>
         </div>
+        <div class="addNewAdmin">
+            <h2>Agregar un nuevo administrador</h2>
+            <p class="textP">Al hacer clic en el botón 'Crear administrador', se desplegará un formulario para crear un nuevo usuario
+                con el rol de administrador.
+                Es importante tener en cuenta que otorgar el rol de administrador conlleva importantes privilegios y
+                responsabilidades.
+                Por tanto, es crucial ejercer precaución al asignar este rol, ya que una gestión inadecuada de los
+                administradores puede comprometer
+                tanto la seguridad como la fiabilidad de la aplicación.</p>
+            <button class="bookmarkBtn">
+                <span class="IconContainer">
+                <i class="fa-solid fa-user-shield icon"></i>
+                </span>
+                <p class="text">Add new Admin</p>
+            </button>
+        </div>
+
     </div>
     <script src="../../../Public/Js/System/Admin/admin.js"></script>
 

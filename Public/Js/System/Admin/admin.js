@@ -334,19 +334,19 @@ btnUpdate.forEach((icon) => {
                 '<div id="location>"' +
                 '<div class="swal2-form-group">' +
                 '  <label for="swal-input-name">Nombre actual: ' + name + '</label>' +
-                '  <input id="name" class="swal2-input" value="">' +
+                '  <input type="text" id="name" class="swal2-input" value="">' +
                 '</div>' +
                 '<div class="swal2-form-group">' +
                 '  <label for="swal-input-lastname">Apellido actual: ' + lastName + '</label>' +
-                '  <input id="lastname" class="swal2-input" value="">' +
+                '  <input type="text" id="lastname" class="swal2-input" value="">' +
                 '</div>' +
                 '<div class="swal2-form-group">' +
                 '  <label for="swal-input-dateofbirth">Fecha de nacimiento actual: ' + dateOfBirth + '</label>' +
-                '  <input id="dateofbirth" class="swal2-input" value="">' +
+                '  <input type="date" id="dateofbirth" class="swal2-input" value="">' +
                 '</div>' +
                 '<div class="swal2-form-group">' +
                 '  <label for="swal-input-phoneNumber">Número actual: ' + phoneNumber + '</label>' +
-                '  <input id="phoneNumber" class="swal2-input" value="">' +
+                '  <input type="tel" id="phoneNumber" class="swal2-input" value="">' +
                 '</div>' +
                 '<div class="swal2-form-group">' +
                 '  <label for="swal-input-studentType">Tipo de estudiante actual: ' + studentType + '</label>' +

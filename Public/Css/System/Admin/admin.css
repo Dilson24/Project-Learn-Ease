@@ -438,19 +438,111 @@ body {
     color: var(--Darkblue);
 }
 
+/*Add new admin*/
+.addNewAdmin {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.addNewAdmin h2 {
+    text-align: center;
+    color: var(--Darkblue);
+    margin: 0.5em auto 0.5em auto;
+}
+
+.addNewAdmin .textp {
+    text-align: justify;
+    color: var(--Secondary);
+    width: 80%;
+    font-size: 1.125em;
+    margin: 0.5em auto 0.5em auto;
+}
+
+.bookmarkBtn {
+    width: 160px;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.349);
+    background-color: var(--Darkblue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+    margin: 0.5em auto 0.5em auto;
+}
+
+.IconContainer {
+    width: 30px;
+    height: 30px;
+    background: var(--Orange);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .3s;
+}
+
+.icon {
+    border-radius: 1px;
+    font-size: 1.3em;
+    color: var(--Darkblue);
+}
+
+.text {
+    height: 100%;
+    width: 122px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Orange);
+    z-index: 1;
+    transition-duration: .3s;
+    font-size: 1.125em;
+}
+
+.bookmarkBtn:hover .IconContainer {
+    width: 150px;
+    /* Arriba | Derecha | Abajo | Izquierda */
+    margin: 0 auto 0 auto;
+    border-radius: 3px;
+    font-size: 1.4em;
+    transition-duration: .3s;
+}
+
+.bookmarkBtn:hover .text {
+    transform: translate(10px);
+    width: 0;
+    font-size: 0;
+    transition-duration: .3s;
+}
+
+.bookmarkBtn:active {
+    transform: scale(0.95);
+    transition-duration: .3s;
+}
+
 /*Sweetalert update*/
 .swal2-form-group {
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .swal2-form-group label {
+.swal2-form-group label {
     font-weight: bold;
-  }
+}
 
-  .swal2-form-group input,
-  .swal2-form-group select {
+.swal2-form-group input,
+.swal2-form-group select {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
+}
