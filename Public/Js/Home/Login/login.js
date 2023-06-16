@@ -229,8 +229,3 @@ $(document).ready(function () {
         );
     });
 });
-
-
-
-
-

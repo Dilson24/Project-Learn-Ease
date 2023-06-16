@@ -22,6 +22,13 @@ class AdminController
     public function deleteUserById($userId) {
         return $this->adminModel->deleteUser($userId);
     }
+
+    public function updateUserById($userId, $name = null, $lastName = null, $dateOfBirth = null, $phoneNumber = null, $studentTypeId = null, $country = null, $city = null) {
+        return $this->adminModel->updateUser($userId, $name, $lastName, $dateOfBirth, $phoneNumber, $studentTypeId, $country, $city);
+    }
+    
+
+
     
     
 

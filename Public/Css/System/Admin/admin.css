@@ -383,9 +383,6 @@ body {
     transition: transform 0.5ms ease-in-out;
 }
 
-
-
-
 .controller {
     display: flex;
     justify-content: center;
@@ -440,3 +437,20 @@ body {
     background-color: var(--Orange);
     color: var(--Darkblue);
 }
+
+/*Sweetalert update*/
+.swal2-form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .swal2-form-group label {
+    font-weight: bold;
+  }
+
+  .swal2-form-group input,
+  .swal2-form-group select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }

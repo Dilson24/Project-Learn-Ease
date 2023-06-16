@@ -200,7 +200,7 @@ btnDelete.forEach((icon) => {
 
 function deleteUserId(userId) {
     const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             Swal.fire(
                 '¡Eliminado!',
@@ -214,5 +214,227 @@ function deleteUserId(userId) {
     xhr.open('POST', '../../../App/View/Admin/profileAdmin.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send('deleteUserId=' + userId);
+}
+
+function loadCascadingSelects() {
+    var selectedCountry = (selectedRegion = selectedCity = "");
+    var BATTUTA_KEY = "00000000000000000000000000000000";
+
+    // Populate country select box from battuta API
+    var populateCountrySelectBox = function () {
+        var url =
+            "https://battuta.medunes.net/api/country/all/?key=" +
+            BATTUTA_KEY +
+            "&callback=?";
+
+        $.getJSON(url, function (data) {
+            $.each(data, function (index, value) {
+                $("#country").append(
+                    '<option value="' + value.code + '">' + value.name + "</option>"
+                );
+            });
+        });
+    };
+
+    // Country selected --> update region list
+    var updateRegionSelectBox = function () {
+        selectedCountry = $("#country option:selected").text();
+        countryCode = $("#country").val();
+        var url =
+            "https://battuta.medunes.net/api/region/" +
+            countryCode +
+            "/all/?key=" +
+            BATTUTA_KEY +
+            "&callback=?";
+
+        $.getJSON(url, function (data) {
+            $("#region option").remove();
+            $("#region").append(
+                '<option value="">Please select your region</option>'
+            );
+            $.each(data, function (index, value) {
+                $("#region").append(
+                    '<option value="' + value.region + '">' + value.region + "</option>"
+                );
+            });
+
+            // Call updateCitySelectBox() to load cities when a region is selected
+            updateCitySelectBox();
+        });
+    };
+
+    // Region selected --> update city list
+    var updateCitySelectBox = function () {
+        selectedRegion = $("#region option:selected").text();
+        countryCode = $("#country").val();
+        region = $("#region").val();
+        var url =
+            "https://battuta.medunes.net/api/city/" +
+            countryCode +
+            "/search/?region=" +
+            region +
+            "&key=" +
+            BATTUTA_KEY +
+            "&callback=?";
+
+        $.getJSON(url, function (data) {
+            $("#city option").remove();
+            $("#city").append('<option value="">Please select your city</option>');
+            $.each(data, function (index, value) {
+                $("#city").append(
+                    '<option value="' + value.city + '">' + value.city + "</option>"
+                );
+            });
+        });
+    };
+
+    // City selected --> update location string
+    var updateLocationString = function () {
+        selectedCity = $("#city option:selected").text();
+        $("#location").html(
+            "Location: Country: " +
+            selectedCountry +
+            ", Region: " +
+            selectedRegion +
+            ", City: " +
+            selectedCity
+        );
+    };
+
+    // Call the functions to populate the select boxes and set up the event listeners
+    populateCountrySelectBox();
+
+    $("#country").change(function () {
+        updateRegionSelectBox();
+    });
+
+    $("#region").change(function () {
+        updateCitySelectBox();
+    });
+
+    $("#city").change(function () {
+        updateLocationString();
+    });
+}
+//UPDATE
+const btnUpdate = document.querySelectorAll(".fa-pen-to-square");
+btnUpdate.forEach((icon) => {
+    icon.addEventListener("click", () => {
+        const row = icon.closest('tr');
+        const name = row.querySelector('td:nth-child(3)').textContent;
+        const lastName = row.querySelector('td:nth-child(4)').textContent;
+        const dateOfBirth = row.querySelector('td:nth-child(5)').textContent;
+        const phoneNumber = row.querySelector('td:nth-child(6)').textContent;
+        const studentType = row.querySelector('td:nth-child(7)').textContent;
+        const country = row.querySelector('td:nth-child(8)').textContent;
+        const city = row.querySelector('td:nth-child(9)').textContent;
+        Swal.fire({
+            title: 'Actualizar registro',
+            html:
+                '<div id="location>"' +
+                '<div class="swal2-form-group">' +
+                '  <label for="swal-input-name">Nombre actual: ' + name + '</label>' +
+                '  <input id="name" class="swal2-input" value="">' +
+                '</div>' +
+                '<div class="swal2-form-group">' +
+                '  <label for="swal-input-lastname">Apellido actual: ' + lastName + '</label>' +
+                '  <input id="lastname" class="swal2-input" value="">' +
+                '</div>' +
+                '<div class="swal2-form-group">' +
+                '  <label for="swal-input-dateofbirth">Fecha de nacimiento actual: ' + dateOfBirth + '</label>' +
+                '  <input id="dateofbirth" class="swal2-input" value="">' +
+                '</div>' +
+                '<div class="swal2-form-group">' +
+                '  <label for="swal-input-phoneNumber">Número actual: ' + phoneNumber + '</label>' +
+                '  <input id="phoneNumber" class="swal2-input" value="">' +
+                '</div>' +
+                '<div class="swal2-form-group">' +
+                '  <label for="swal-input-studentType">Tipo de estudiante actual: ' + studentType + '</label>' +
+                '  <select id="studentType" class="swal2-select">' +
+                '    <option value="">-- ¿Qué tipo de estudiante eres? --</option>' +
+                '    <option value="1">Estudiante universitario/a</option>' +
+                '    <option value="2">Estudiante de secundaria</option>' +
+                '    <option value="3">Estudiante técnico o tecnólogo</option>' +
+                '  </select>' +
+                '</div>' +
+                '<div class="swal2-form-group">' +
+                '  <label for="swal-input-country">País actual: ' + country + '</label>' +
+                '  <select id="country" class="swal2-select">' +
+                '    <option value="">-- País --</option>' +
+                '  </select>' +
+                '</div>' +
+                '<div class="swal2-form-group">' +
+                '  <select id="region" class="swal2-select">' +
+                '    <option value="">-- Región --</option>' +
+                '  </select>' +
+                '</div>' +
+                '<div class="swal2-form-group">' +
+                '  <label for="swal-input-city">Ciudad actual: ' + city + '</label>' +
+                '  <select id="city" class="swal2-select">' +
+                '    <option value="">-- Ciudad --</option>' +
+                '  </select>' +
+                '</div>' +
+                '</div>',
+            showCancelButton: true,
+            confirmButtonText: 'Actualizar',
+            preConfirm: () => {
+                const name = document.getElementById('name').value;
+                const lastName = document.getElementById('lastname').value;
+                const dateOfBirth = document.getElementById('dateofbirth').value;
+                const phoneNumber = document.getElementById('phoneNumber').value;
+                const studentType = document.getElementById('studentType').value;
+                const country = document.getElementById('country').value;
+                const city = document.getElementById('city').value;
+
+                return { name, lastName, dateOfBirth, phoneNumber, studentType, country, city };
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const { name, lastName, dateOfBirth, phoneNumber, studentType, country, city } = result.value;
+                // ID del usurio selecionado
+                const userId = icon.getAttribute("data-id");
+                // Llamar a la función para actualizar el usuario
+                updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentType, country, city);
+            }
+        });
+        loadCascadingSelects();
+    });
+});
+
+function updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentType, country, city) {
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                Swal.fire(
+                    '¡Actualizado!',
+                    'El registro ha sido actualizado.',
+                    'success'
+                ).then(() => {
+                    location.reload(); // Recargar la página para mostrar los cambios actualizados
+                });
+            } else {
+                Swal.fire(
+                    'Error',
+                    'Ocurrió un error al actualizar el registro.',
+                    'error'
+                );
+            }
+        }
+    };
+
+    xhr.open('POST', '../../../App/View/Admin/profileAdmin.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    const params = new URLSearchParams();
+    params.append('userId', userId);
+    if (name) params.append('name', name);
+    if (lastName) params.append('lastName', lastName);
+    if (dateOfBirth) params.append('dateOfBirth', dateOfBirth);
+    if (phoneNumber) params.append('phoneNumber', phoneNumber);
+    if (studentType) params.append('studentType', studentType);
+    if (country) params.append('country', country);
+    if (city) params.append('city', city);
+    xhr.send(params);
 }
 

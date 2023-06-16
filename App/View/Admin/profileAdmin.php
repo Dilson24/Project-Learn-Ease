@@ -18,6 +18,32 @@ if (isset($_POST['deleteUserId'])) {
     $adminController->deleteUserById($userId);
     exit(); // Terminar la ejecución del script después de eliminar el usuario
 }
+// Procesar la solicitud de actualización
+if (isset($_POST['updateUserId'])) {
+    $userId = $_POST['userId'];
+    $name = isset($_POST['name']) ? $_POST['name'] : null;
+    $lastName = isset($_POST['lastName']) ? $_POST['lastName'] : null;
+    $dateOfBirth = isset($_POST['dateOfBirth']) ? $_POST['dateOfBirth'] : null;
+    $phoneNumber = isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : null;
+    $studentTypeId = isset($_POST['studentType']) ? $_POST['studentType'] : null;
+    $country = isset($_POST['country']) ? $_POST['country'] : null;
+    $city = isset($_POST['city']) ? $_POST['city'] : null;
+
+    // Realizar la actualización en la base de datos
+    $result = $adminController->updateUserById($userId, $name, $lastName, $dateOfBirth, $phoneNumber, $studentTypeId, $country, $city);
+
+    // Verificar el resultado de la actualización
+    if ($result) {
+        // La actualización se realizó con éxito
+        http_response_code(200); // Establecer el código de respuesta HTTP 200 (OK)
+    } else {
+        // Ocurrió un error durante la actualización
+        http_response_code(500); // Establecer el código de respuesta HTTP 500 (Internal Server Error)
+    }
+
+    exit(); // Terminar la ejecución del script después de procesar la actualización
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -31,6 +57,7 @@ if (isset($_POST['deleteUserId'])) {
     <link href="../../../Public/Css/Home/Landigpage/hamburgers.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../Public/Css/System/Admin/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -203,7 +230,7 @@ if (isset($_POST['deleteUserId'])) {
                                 <?php echo $user['Role_ID']; ?>
                             </td>
                             <td class="iconsO">
-                                <i class="fa-solid fa-pen-to-square"></i>
+                                <i class="fa-solid fa-pen-to-square" data-id="<?php echo $user['User_ID']; ?>"></i>
                                 <i class="fa-solid fa-trash" data-id="<?php echo $user['User_ID']; ?>"></i>
                             </td>
                         </tr>
