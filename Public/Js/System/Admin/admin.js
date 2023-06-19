@@ -427,7 +427,7 @@ function updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentT
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     const params = new URLSearchParams();
-    params.append('updateUserId', true); 
+    params.append('updateUserId', true);
     params.append('userId', userId);
     if (name) params.append('name', name);
     if (lastName) params.append('lastName', lastName);
@@ -439,3 +439,130 @@ function updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentT
     xhr.send(params);
 }
 
+/*Insert*/
+
+const btnAddAdmin = document.querySelector(".btnAddAdmin");
+
+btnAddAdmin.onclick = function () {
+    Swal.fire({
+        title: 'Añadir nuevo Administrador',
+        html:
+            '<div id="location>"' +
+            '<div class="swal2-form-group">' +
+            '  <label for="swal-input-name">Nombre</label>' +
+            '  <input type="text" id="name" class="swal2-input" value="">' +
+            '</div>' +
+            '<div class="swal2-form-group">' +
+            '  <label for="swal-input-lastname">Apellido</label>' +
+            '  <input type="text" id="lastname" class="swal2-input" value="">' +
+            '</div>' +
+            '<div class="swal2-form-group">' +
+            '  <label for="swal-input-dateofbirth">Fecha de nacimiento</label>' +
+            '  <input type="date" id="dateofbirth" class="swal2-input" value="">' +
+            '</div>' +
+            '<div class="swal2-form-group">' +
+            '  <label for="swal-input-phoneNumber">Número de telefono</label>' +
+            '  <input type="tel" id="phoneNumber" class="swal2-input" value="">' +
+            '</div>' +
+            '<div class="swal2-form-group">' +
+            '  <label for="swal-input-country">País</label>' +
+            '  <select id="country" class="swal2-select">' +
+            '    <option value="">-- País --</option>' +
+            '  </select>' +
+            '</div>' +
+            '<div class="swal2-form-group">' +
+            '  <select id="region" class="swal2-select">' +
+            '    <option value="">-- Región --</option>' +
+            '  </select>' +
+            '</div>' +
+            '<div class="swal2-form-group">' +
+            '  <label for="swal-input-city">Ciudad</label>' +
+            '  <select id="city" class="swal2-select">' +
+            '    <option value="">-- Ciudad --</option>' +
+            '  </select>' +
+            '</div>' +
+            '<div class="swal2-form-group">' +
+            '  <label for="swal-input-email">Email</label>' +
+            '  <input type="email" id="email" class="swal2-input" value="">' +
+            '</div>' +
+            '<div class="swal2-form-group">' +
+            '  <label for="swal-input-password">Contraseña</label>' +
+            '  <input type="password" id="password" class="swal2-input" value="">' +
+            '</div>' +
+            '</div>',
+        showCancelButton: true,
+        confirmButtonText: 'Crear Nuevo Admin',
+        preConfirm: () => {
+            const name = document.getElementById('name').value;
+            const lastName = document.getElementById('lastname').value;
+            const dateOfBirth = document.getElementById('dateofbirth').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const country = document.getElementById('country').value;
+            const city = document.getElementById('city').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            // Validar que ningún campo esté vacío
+            if (
+                name === '' ||
+                lastName === '' ||
+                dateOfBirth === '' ||
+                phoneNumber === '' ||
+                country === '' ||
+                city === '' ||
+                email === '' ||
+                password === ''
+            ) {
+                Swal.showValidationMessage('Por favor, complete todos los campos.');
+            } else {
+                return { name, lastName, dateOfBirth, phoneNumber, country, city, email, password };
+            }
+        },
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const { name, lastName, dateOfBirth, phoneNumber, country, city, email, password } = result.value;
+
+            // Llamar a la función para crear nuevo admin
+            insertNewAdmin(name, lastName, dateOfBirth, phoneNumber, country, city, email, password);
+        }
+    });
+
+    loadCascadingSelects();
+}
+
+function insertNewAdmin(name, lastName, dateOfBirth, phoneNumber, country, city, email, password) {
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                Swal.fire(
+                    '¡Nuevo Admin!',
+                    'El usuario a sido creado con exito.',
+                    'success'
+                ).then(() => {
+                    location.reload(); // Recargar la página para mostrar los cambios actualizados
+                });
+            } else {
+                Swal.fire(
+                    'Error',
+                    'Ocurrió un error al crear el nuevo admin.',
+                    'error'
+                );
+            }
+        }
+    };
+
+    xhr.open('POST', '../../../App/View/Admin/profileAdmin.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    const params = new URLSearchParams();
+    params.append('insertNewAdmin', true);
+    if (name) params.append('name', name);
+    if (lastName) params.append('lastName', lastName);
+    if (dateOfBirth) params.append('dateOfBirth', dateOfBirth);
+    if (phoneNumber) params.append('phoneNumber', phoneNumber);
+    if (country) params.append('country', country);
+    if (city) params.append('city', city);
+    if (email) params.append('email', email);
+    if (password) params.append('password', password);
+    xhr.send(params);
+}

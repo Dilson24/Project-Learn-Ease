@@ -48,6 +48,40 @@ if (isset($_POST['updateUserId']) && $_POST['updateUserId'] === 'true') {
 
     exit(); // Terminar la ejecución del script después de procesar la actualización
 }
+// Procesar la solicitud de creación
+if (isset($_POST['insertNewAdmin']) && $_POST['insertNewAdmin'] === 'true') {
+    // Obtener los valores ingresados por el usuario
+    $name = $_POST['name'];
+    $lastName = $_POST['lastName'];
+    $dateOfBirth = $_POST['dateOfBirth'];
+    $phone = $_POST['phoneNumber']; // Utilizar 'phoneNumber' en lugar de 'phone'
+    $country = $_POST['country'];
+    $city = $_POST['city'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $profileImage = 'Public/Assets/Img/User-Profile.png';
+
+    // Aplicar el formato necesario a los campos
+    $nameFormatted = ucfirst(strtolower($name));
+    $lastNameFormatted = ucfirst(strtolower($lastName));
+    $dateOfBirthFormatted = date('Y-m-d', strtotime(str_replace('/', '-', $dateOfBirth)));
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Realizar la inserción en la base de datos
+    $result = $adminController->insertNewUser($nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phone, $country, $city, $email, $hashedPassword, $profileImage);
+
+    // Verificar el resultado de la inserción
+    if ($result) {
+        // La inserción se realizó con éxito
+        http_response_code(200); // Establecer el código de respuesta HTTP 200 (OK)
+    } else {
+        // Ocurrió un error durante la inserción
+        http_response_code(500); // Establecer el código de respuesta HTTP 500 (Internal Server Error)
+    }
+
+    exit(); // Terminar la ejecución del script después de procesar la inserción
+}
+
 
 
 
@@ -255,16 +289,17 @@ if (isset($_POST['updateUserId']) && $_POST['updateUserId'] === 'true') {
         </div>
         <div class="addNewAdmin">
             <h2>Agregar un nuevo administrador</h2>
-            <p class="textP">Al hacer clic en el botón 'Crear administrador', se desplegará un formulario para crear un nuevo usuario
+            <p class="textP">Al hacer clic en el botón 'Crear administrador', se desplegará un formulario para crear un
+                nuevo usuario
                 con el rol de administrador.
                 Es importante tener en cuenta que otorgar el rol de administrador conlleva importantes privilegios y
                 responsabilidades.
                 Por tanto, es crucial ejercer precaución al asignar este rol, ya que una gestión inadecuada de los
                 administradores puede comprometer
                 tanto la seguridad como la fiabilidad de la aplicación.</p>
-            <button class="bookmarkBtn">
-                <span class="IconContainer">
-                <i class="fa-solid fa-user-shield icon"></i>
+            <button class="btnAddAdmin">
+                <span class="iconContainer">
+                    <i class="fa-solid fa-user-shield"></i>
                 </span>
                 <p class="text">Add new Admin</p>
             </button>

@@ -28,6 +28,11 @@ class AdminController
         $result = $this->adminModel->updateUserData($userId, $nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phoneNumber, $studentType, $country, $city);
         return $result;
     }
+
+    public function insertNewUser($nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phone, $country, $city, $email, $hashedPassword, $profileImage){
+        $result = $this->adminModel->insertUser($nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phone, $country, $city, $email, $hashedPassword, $profileImage);
+        return $result;
+    }
     
     
 }

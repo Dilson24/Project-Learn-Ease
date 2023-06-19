@@ -463,7 +463,7 @@ body {
     margin: 0.5em auto 0.5em auto;
 }
 
-.bookmarkBtn {
+.addNewAdmin .btnAddAdmin {
     width: 160px;
     height: 40px;
     border-radius: 3px;
@@ -478,7 +478,7 @@ body {
     margin: 0.5em auto 0.5em auto;
 }
 
-.IconContainer {
+.btnAddAdmin .iconContainer {
     width: 30px;
     height: 30px;
     background: var(--Orange);
@@ -491,7 +491,7 @@ body {
     transition-duration: .3s;
 }
 
-.icon {
+.iconContainer .fa-user-shield {
     border-radius: 1px;
     font-size: 1.3em;
     color: var(--Darkblue);
@@ -509,7 +509,7 @@ body {
     font-size: 1.125em;
 }
 
-.bookmarkBtn:hover .IconContainer {
+.btnAddAdmin:hover .iconContainer {
     width: 150px;
     /* Arriba | Derecha | Abajo | Izquierda */
     margin: 0 auto 0 auto;
@@ -518,14 +518,14 @@ body {
     transition-duration: .3s;
 }
 
-.bookmarkBtn:hover .text {
+.btnAddAdmin:hover .text {
     transform: translate(10px);
     width: 0;
     font-size: 0;
     transition-duration: .3s;
 }
 
-.bookmarkBtn:active {
+.btnAddAdmin:active {
     transform: scale(0.95);
     transition-duration: .3s;
 }
