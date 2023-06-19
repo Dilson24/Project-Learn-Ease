@@ -211,9 +211,12 @@ function deleteUserId(userId) {
             });
         }
     };
-    xhr.open('POST', '../../../App/View/Admin/profileAdmin.php', true);
+    xhr.open('POST', '../../../App/Controller/Admin/adminController.php?deleteUserId', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.send('deleteUserId=' + userId);
+    const params = new URLSearchParams();
+    params.append('deleteUserId', true);
+    params.append('userId', userId);
+    xhr.send(params);
 }
 
 function loadCascadingSelects() {
@@ -423,7 +426,7 @@ function updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentT
         }
     };
 
-    xhr.open('POST', '../../../App/View/Admin/profileAdmin.php', true);
+    xhr.open('POST', '../../../App/Controller/Admin/adminController.php?updateUserId', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     const params = new URLSearchParams();
@@ -551,7 +554,7 @@ function insertNewAdmin(name, lastName, dateOfBirth, phoneNumber, country, city,
         }
     };
 
-    xhr.open('POST', '../../../App/View/Admin/profileAdmin.php', true);
+    xhr.open('POST', '../../../App/Controller/Admin/adminController.php?AddNewAdmin', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     const params = new URLSearchParams();
@@ -565,4 +568,5 @@ function insertNewAdmin(name, lastName, dateOfBirth, phoneNumber, country, city,
     if (email) params.append('email', email);
     if (password) params.append('password', password);
     xhr.send(params);
+
 }

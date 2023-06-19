@@ -15,12 +15,19 @@ class AdminModel
     }
     public function deleteUser($userId)
     {
+        // Eliminar registros de la tabla user_connections asociados al usuario
+        $stmt = $this->conn->prepare('DELETE FROM user_connections WHERE User_ID = :userId');
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+    
+        // Eliminar el registro del usuario en la tabla user
         $stmt = $this->conn->prepare('DELETE FROM user WHERE User_ID = :userId');
         $stmt->bindParam(':userId', $userId);
         $stmt->execute();
     }
+    
 
-    public function updateUserData($userId, $nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phoneNumber, $studentType, $country, $city)
+    public function updateUserData($userId, $nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phoneNumber, $studentTypeId, $country, $city)
     {
         // Crear una cadena para almacenar las cláusulas SET de la consulta UPDATE
         $updateFields = "";
@@ -38,7 +45,7 @@ class AdminModel
         if ($phoneNumber) {
             $updateFields .= "Phone_Number = :phoneNumber, ";
         }
-        if ($studentType) {
+        if ($studentTypeId) {
             $updateFields .= "Student_Type_ID = :studentType, ";
         }
         if ($country) {
@@ -68,8 +75,8 @@ class AdminModel
                 $stmt->bindParam(':dateOfBirth', $dateOfBirthFormatted);
             if ($phoneNumber)
                 $stmt->bindParam(':phoneNumber', $phoneNumber);
-            if ($studentType)
-                $stmt->bindParam(':studentType', $studentType);
+            if ($studentTypeId)
+                $stmt->bindParam(':studentType', $studentTypeId);
             if ($country)
                 $stmt->bindParam(':country', $country);
             if ($city)

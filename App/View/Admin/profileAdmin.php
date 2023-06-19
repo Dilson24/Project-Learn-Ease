@@ -8,83 +8,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
     header('Location: ../../../App/View/User/login.php');
     exit();
 }
-
 // Crear una instancia de AdminController
 $adminController = new AdminController($conn);
 $users = $adminController->read();
-// Procesar la solicitud de eliminación
-if (isset($_POST['deleteUserId'])) {
-    $userId = $_POST['deleteUserId'];
-    $adminController->deleteUserById($userId);
-    exit(); // Terminar la ejecución del script después de eliminar el usuario
-}
-// Procesar la solicitud de actualización
-if (isset($_POST['updateUserId']) && $_POST['updateUserId'] === 'true') {
-    $userId = $_POST['userId'];
-    $name = isset($_POST['name']) ? $_POST['name'] : null;
-    $lastName = isset($_POST['lastName']) ? $_POST['lastName'] : null;
-    $dateOfBirth = isset($_POST['dateOfBirth']) ? $_POST['dateOfBirth'] : null;
-    $phoneNumber = isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : null;
-    $studentTypeId = isset($_POST['studentType']) ? $_POST['studentType'] : null;
-    $country = isset($_POST['country']) ? $_POST['country'] : null;
-    $city = isset($_POST['city']) ? $_POST['city'] : null;
-
-    // Aplicar el formato necesario a los campos
-    $nameFormatted = ucfirst(strtolower($name));
-    $lastNameFormatted = ucfirst(strtolower($lastName));
-    $dateOfBirthFormatted = date('Y-m-d', strtotime(str_replace('/', '-', $dateOfBirth)));
-
-    // Realizar la actualización en la base de datos
-    $result = $adminController->updateUserById($userId, $nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phoneNumber, $studentTypeId, $country, $city);
-
-    // Verificar el resultado de la actualización
-    if ($result) {
-        // La actualización se realizó con éxito
-        http_response_code(200); // Establecer el código de respuesta HTTP 200 (OK)
-    } else {
-        // Ocurrió un error durante la actualización
-        http_response_code(500); // Establecer el código de respuesta HTTP 500 (Internal Server Error)
-    }
-
-    exit(); // Terminar la ejecución del script después de procesar la actualización
-}
-// Procesar la solicitud de creación
-if (isset($_POST['insertNewAdmin']) && $_POST['insertNewAdmin'] === 'true') {
-    // Obtener los valores ingresados por el usuario
-    $name = $_POST['name'];
-    $lastName = $_POST['lastName'];
-    $dateOfBirth = $_POST['dateOfBirth'];
-    $phone = $_POST['phoneNumber']; // Utilizar 'phoneNumber' en lugar de 'phone'
-    $country = $_POST['country'];
-    $city = $_POST['city'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $profileImage = 'Public/Assets/Img/User-Profile.png';
-
-    // Aplicar el formato necesario a los campos
-    $nameFormatted = ucfirst(strtolower($name));
-    $lastNameFormatted = ucfirst(strtolower($lastName));
-    $dateOfBirthFormatted = date('Y-m-d', strtotime(str_replace('/', '-', $dateOfBirth)));
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    // Realizar la inserción en la base de datos
-    $result = $adminController->insertNewUser($nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phone, $country, $city, $email, $hashedPassword, $profileImage);
-
-    // Verificar el resultado de la inserción
-    if ($result) {
-        // La inserción se realizó con éxito
-        http_response_code(200); // Establecer el código de respuesta HTTP 200 (OK)
-    } else {
-        // Ocurrió un error durante la inserción
-        http_response_code(500); // Establecer el código de respuesta HTTP 500 (Internal Server Error)
-    }
-
-    exit(); // Terminar la ejecución del script después de procesar la inserción
-}
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

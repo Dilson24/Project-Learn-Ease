@@ -119,8 +119,6 @@ class UserController
     }
 }
 
-// Ejemplo de uso:
-require_once '../../../App/Config/connection.php';
 $userController = new UserController($conn);
 
 if (isset($_GET['register'])) {
