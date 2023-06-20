@@ -309,8 +309,7 @@ body {
     flex-direction: column;
     gap: 0.5em;
     width: 100%;
-    height: 100%;
-    border: 1px solid red;
+    height: 100%;  
 }
 
 .userRegister {
@@ -446,7 +445,6 @@ body {
     gap: 0.5em;
     width: 100%;
     height: 100%;
-    border: 1px solid red;
 }
 
 .addNewAdmin h2 {

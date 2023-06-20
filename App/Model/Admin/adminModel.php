@@ -2,7 +2,6 @@
 class AdminModel
 {
     private $conn;
-
     public function __construct($conn)
     {
         $this->conn = $conn;
@@ -15,24 +14,19 @@ class AdminModel
     }
     public function deleteUser($userId)
     {
-        // Eliminar registros de la tabla user_connections asociados al usuario
         $stmt = $this->conn->prepare('DELETE FROM user_connections WHERE User_ID = :userId');
         $stmt->bindParam(':userId', $userId);
         $stmt->execute();
-    
-        // Eliminar el registro del usuario en la tabla user
+
         $stmt = $this->conn->prepare('DELETE FROM user WHERE User_ID = :userId');
         $stmt->bindParam(':userId', $userId);
         $stmt->execute();
     }
-    
 
     public function updateUserData($userId, $nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phoneNumber, $studentTypeId, $country, $city)
     {
-        // Crear una cadena para almacenar las cláusulas SET de la consulta UPDATE
         $updateFields = "";
 
-        // Verificar cada campo y agregarlo a la cadena si tiene un valor
         if ($nameFormatted) {
             $updateFields .= "Name = :name, ";
         }
@@ -55,17 +49,14 @@ class AdminModel
             $updateFields .= "City = :city, ";
         }
 
-        // Eliminar la coma y el espacio final de la cadena
         $updateFields = rtrim($updateFields, ", ");
 
-        // Verificar si se proporcionaron datos para actualizar
         if (!empty($updateFields)) {
-            // Consulta SQL para actualizar los datos del usuario
+
             $sql = "UPDATE user SET $updateFields WHERE User_ID = :userId";
 
             $stmt = $this->conn->prepare($sql);
 
-            // Vincular los parámetros
             $stmt->bindParam(':userId', $userId);
             if ($nameFormatted)
                 $stmt->bindParam(':name', $nameFormatted);
@@ -83,12 +74,12 @@ class AdminModel
                 $stmt->bindParam(':city', $city);
 
             if ($stmt->execute()) {
-                return true; // Actualización exitosa
+                return true;
             } else {
-                return false; // Error al actualizar
+                return false;
             }
         } else {
-            return false; // No se proporcionaron datos para actualizar
+            return false;
         }
     }
     public function insertUser($nameFormatted, $lastNameFormatted, $dateOfBirthFormatted, $phone, $country, $city, $email, $hashedPassword, $profileImage)
@@ -105,9 +96,9 @@ class AdminModel
         $stmt->bindParam(':password', $hashedPassword);
         $stmt->bindParam(':profileImage', $profileImage);
         if ($stmt->execute()) {
-            return true; // Insert exitoso
+            return true;
         } else {
-            return false; // Error
+            return false;
         }
     }
 }

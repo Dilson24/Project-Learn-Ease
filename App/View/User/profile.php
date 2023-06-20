@@ -1,8 +1,6 @@
 <?php
 session_start();
-// Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'User') {
-    // El usuario no ha iniciado sesión o no tiene el rol de User
     header('Location: ../../../App/View/User/login.php');
     exit();
 }
@@ -15,7 +13,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'User') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../../Public/Css/Includes/all.css" type="text/css">
-    <link href="../../../Public/Css/Home/Landigpage/hamburgers.css" rel="stylesheet">
+    <link href="../../../Public/Css/Includes/hamburgers.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../Public/Css/System/User/user.css">
     <title>Panel User</title>
 </head>
@@ -26,7 +24,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'User') {
             <div class="logo">
                 <img class="logoHeader" src="../../../Public/Assets/Img/headerLogo.svg" alt="header logo">
             </div>
-            <!-- <i class='bx bx-menu-alt-right' id="btn" style="font-size: 25px;"></i> -->
             <button id="btn" class="hamburger hamburger--arrow is-active" type="button" aria-label="Menu"
                 aria-controls="navigation">
                 <span class="hamburger-box boxNav">

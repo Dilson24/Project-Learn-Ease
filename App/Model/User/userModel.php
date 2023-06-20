@@ -16,7 +16,6 @@ class UserModel
         $stmt->execute();
         return $stmt->fetch();
     }
-
     public function getMaxUserConnectionCount($userId)
     {
         $stmt = $this->conn->prepare('SELECT MAX(Last_Count) AS MaxCount FROM user_connections WHERE User_ID = :userId');
@@ -50,7 +49,6 @@ class UserModel
         $stmt->bindParam(':profileImage', $profileImage);
         $stmt->execute();
     }
-
     public function getLastInsertId()
     {
         return $this->conn->lastInsertId();

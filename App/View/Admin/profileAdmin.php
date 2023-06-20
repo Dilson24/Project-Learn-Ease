@@ -1,14 +1,10 @@
 <?php
 require_once '../../../App/Controller/Admin/adminController.php';
 session_start();
-
-// Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
-    // El usuario no ha iniciado sesión o no tiene el rol de administrador
     header('Location: ../../../App/View/User/login.php');
     exit();
 }
-// Crear una instancia de AdminController
 $adminController = new AdminController($conn);
 $users = $adminController->read();
 ?>
@@ -20,7 +16,7 @@ $users = $adminController->read();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../../Public/Css/Includes/all.css" type="text/css">
-    <link href="../../../Public/Css/Home/Landigpage/hamburgers.css" rel="stylesheet">
+    <link href="../../../Public/Css/Includes/hamburgers.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../Public/Css/System/Admin/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -36,7 +32,6 @@ $users = $adminController->read();
             <div class="logo">
                 <img class="logoHeader" src="../../../Public/Assets/Img/headerLogo.svg" alt="header logo">
             </div>
-            <!-- <i class='bx bx-menu-alt-right' id="btn" style="font-size: 25px;"></i> -->
             <button id="btn" class="hamburger hamburger--arrow is-active" type="button" aria-label="Menu"
                 aria-controls="navigation">
                 <span class="hamburger-box boxNav">
