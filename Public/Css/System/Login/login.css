@@ -27,15 +27,15 @@ body {
 }
 
 .main {
-    position: relative;
     display: flex;
     flex-direction: column;
-    background-color: var(--Darkblue);
-    max-height: 350px;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: -5px -5px 15px 5px rgba(0, 0, 0, 0.30), 5px 5px 15px 7px rgba(0, 0, 0, 0.30);
+    position: relative;
+    max-height: 21.6em;
     margin: auto 0 auto 0;
+    overflow: hidden;
+    background-color: var(--Darkblue);
+    border-radius: 0.75em;
+    box-shadow: -0.3125em -0.3125em 0.9375em 0.3125em rgba(0, 0, 0, 0.30), 5px 5px 15px 7px rgba(0, 0, 0, 0.30);
     transition: max-height 0.5s ease;
     animation: zoomIn;
     animation-duration: 1s;
@@ -56,35 +56,31 @@ body {
     animation-name: zoomIn;
 }
 
-
 .form{
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    padding: 24px;
+    gap: 0.875em;
+    padding: 1.5em;
 }
 
 /*checkbox to switch from sign up to login*/
 #chk {
     display: none;
 }
-
 #chk:checked~.register {
     transition: transform 0.5s ease;
     transform: translateY(-32%);
 }
-
 #chk:checked~.register label {
     transform: scale(1);
     margin: 1% 0 5%;
 }
-
 #chk:checked~.login label {
     transform: scale(.6);
     margin: 5% 0 5%;
 }
 
-/*Login*/
+/*--- L O G I N ---*/
 .login {
     position: relative;
     width: 100%;
@@ -96,93 +92,93 @@ body {
 }
 
 label {
-    color: var(--Orange);
-    font-size: 2rem;
-    justify-content: center;
     display: flex;
+    justify-content: center;
+    color: var(--Orange);
+    font-size: 2em;
     font-weight: bold;
-    cursor: pointer;
     transition: .5s ease-in-out;
+    cursor: pointer;
 }
 
 .inputBoxSignIn,
 .inputBoxSignUp {
     position: relative;
-    width: 300px;
+    width: 18.75em;
 }
 
 .inputBoxSignIn input {
     width: 100%;
-    padding: 10px;
+    padding: 0.625em;
     outline: none;
     border: none;
     color: var(--Orange);
     font-size: 1em;
     background: transparent;
-    border-left: 3px solid #FFFFFF;
-    border-bottom: 3px solid #FFFFFF;
+    border-left: 0.1875em solid #FFFFFF;
+    border-bottom:0.1875em solid #FFFFFF;
+    border-bottom-left-radius: 0.5em;
     transition: 0.1s;
-    border-bottom-left-radius: 8px;
 }
 
 .inputBoxSignIn span {
-    margin-top: 5px;
     position: absolute;
     left: 0;
-    transform: translateY(-4px);
-    margin-left: 10px;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 12px;
+    padding: 0.625em;
+    margin-top: 0.3125em;
+    margin-left: 0.625em;
     color: var(--Orange);
     text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.1875em;
+    border-radius: 0.5em;
+    transform: translateY(-0.25em);
     transition: 0.5s;
-    letter-spacing: 3px;
-    border-radius: 8px;
+    pointer-events: none;
 }
 
 .email input:valid~span,
 .email input:focus~span {
-    transform: translateX(205px) translateY(-15px);
+    transform: translateX(16.5em) translateY(-1.1em);
     font-size: 0.8em;
-    padding: 5px 10px;
+    padding: 0.3125em 0.625em;
     background: var(--White);
     letter-spacing: 0.2em;
     color: var(--Orange);
-    border: 2px;
+    border: 0.125em;
 }
 
 .password input:valid~span,
 .password input:focus~span {
-    transform: translateX(142px) translateY(-15px);
+    transform: translateX(11.5em) translateY(-1.1em);
     font-size: 0.8em;
-    padding: 5px 10px;
+    padding: 0.3125em 0.625em;
     background: var(--White);
     letter-spacing: 0.2em;
     color: var(--Orange);
-    border: 2px;
+    border: 0.125em;
 }
 
 .inputBoxSignIn input:valid,
 .inputBoxSignIn input:focus {
-    border: 2px solid var(--Orange);
-    border-radius: 8px;
+    border: 0.125em solid var(--Orange);
+    border-radius: 0.5em;
 }
 
 .SignInBtn {
-    height: 45px;
-    width: 120px;
-    border-radius: 5px;
-    border: 3px solid var(--White);
+    height: 2.8125em;
+    width: 9.5em;
+    margin: 0 auto 3em auto;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    border-radius: 0.3125em;
+    border: 0.1875em solid var(--White);
     color: var(--Orange);
-    cursor: pointer;
     background-color: transparent;
     transition: 0.5s;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin: 0 auto 3em auto;
     transition: transform .2s ease-in-out;
+    cursor: pointer;
 }
 
 .SignInBtn:hover {
@@ -191,7 +187,7 @@ label {
     transform: scale(1.1);
 }
 
-/*Register*/
+/*--- R E G I S T E R ---*/
 .register {
     background: var(--Orange);
     border-radius: 30% / 5%;
@@ -208,77 +204,77 @@ label {
 .inputBoxSignUp input,
 select {
     width: 100%;
-    padding: 10px;
-    outline: none;
+    max-height: 12.5em;
+    padding: 0.625em;
     border: none;
-    color: var(--Darkblue);
+    outline: none;
     font-size: 1em;
+    color: var(--Darkblue);
     background: transparent;
-    border-left: 3px solid #FFFFFF;
-    border-bottom: 3px solid #FFFFFF;
+    border-left: 0.1875em solid #FFFFFF;
+    border-bottom: 0.1875em solid #FFFFFF;
+    border-bottom-left-radius: 0.5em;
     transition: 0.1s;
-    max-height: 200px;
-    border-bottom-left-radius: 8px;
 }
 
 .inputBoxSignUp span {
-    margin-top: 5px;
     position: absolute;
     left: 0;
-    transform: translateY(-4px);
-    margin-left: 10px;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 12px;
-    color: var(--Darkblue);
+    padding: 0.625em;
+    margin-left: 0.625em;
+    margin-top: 0.3125em;
     text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.1875em;
+    color: var(--Darkblue);
+    border-radius: 0.5em;
+    transform: translateY(-0.25em);
     transition: 0.5s;
-    letter-spacing: 3px;
-    border-radius: 8px;
+    pointer-events: none;
 }
 
 .email2 input:valid~span,
 .email2 input:focus~span {
-    transform: translateX(205px) translateY(-15px);
-    font-size: 0.8em;
-    padding: 5px 10px;
-    background: var(--White);
-    letter-spacing: 0.2em;
+    transform: translateX(16.5em) translateY(-1.1em);
+    padding: 0.3125em 0.625em;
     color: var(--Darkblue);
-    border: 2px;
+    background: var(--White);
+    border: 0.125em;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
 }
 
 .name input:valid~span,
 .name input:focus~span {
-    transform: translateX(185px) translateY(-15px);
-    font-size: 0.8em;
-    padding: 5px 10px;
-    background: var(--White);
-    letter-spacing: 0.2em;
+    transform: translateX(14.8em) translateY(-1.1em);
+    padding: 0.3125em 0.625em;
     color: var(--Darkblue);
-    border: 2px;
+    background: var(--White);
+    border: 0.125em;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
 }
 
 .lastName input:valid~span,
 .lastName input:focus~span {
-    transform: translateX(172px) translateY(-15px);
-    font-size: 0.8em;
-    padding: 5px 10px;
-    background: var(--White);
-    letter-spacing: 0.2em;
+    transform: translateX(13.8em) translateY(-1.1em);
+    padding: 0.3125em 0.625em;
     color: var(--Darkblue);
-    border: 2px;
+    background: var(--White);
+    border: 0.125em;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
 }
 
 .phone input:valid~span,
 .phone input:focus~span {
-    transform: translateX(60px) translateY(-15px);
-    font-size: 0.8em;
-    padding: 5px 10px;
-    background: var(--White);
-    letter-spacing: 0.2em;
+    transform: translateX(5.1em) translateY(-1.1em);
+    padding: 0.3125em 0.625em;
     color: var(--Darkblue);
-    border: 2px;
+    background: var(--White);
+    border: 0.125em;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
 }
 
 .date::-webkit-datetime-edit,
@@ -289,58 +285,58 @@ select {
 
 
 .dateofBirth span {
-    margin-left: 20px;
+    margin-left: 1.8em;
 }
 
 .dateofBirth input:valid~span,
 .dateofBirth input:focus~span {
-    transform: translateX(50px) translateY(-15px);
-    font-size: 0.8em;
-    padding: 3px 10px;
-    background: var(--White);
-    letter-spacing: 0.2em;
+    transform: translateX(3.9em) translateY(-1.1em);
+    padding:0.1875em 0.625em;
     color: var(--Darkblue);
-    border: 2px;
+    background: var(--White);
+    border: 0.125em;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
 }
 
 
 .password2 input:valid~span,
 .password2 input:focus~span {
-    transform: translateX(142px) translateY(-15px);
-    font-size: 0.8em;
-    padding: 5px 10px;
-    background: var(--White);
-    letter-spacing: 0.2em;
+    transform: translateX(11.5em) translateY(-1.1em);
+    padding:0.1875em 0.625em;
     color: var(--Darkblue);
-    border: 2px;
+    background: var(--White);
+    border: 0.125em;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
 }
 
 
 .inputBoxSignUp input:valid,
 .inputBoxSignUp input:focus {
-    border: 2px solid var(--Darkblue);
-    border-radius: 8px;
+    border:  0.125em solid var(--Darkblue);
+    border-radius: 0.5em;
 }
 
 .inputBoxSignUp select:focus {
-    border: 2px solid var(--Darkblue);
-    border-radius: 8px;
+    border:  0.125em solid var(--Darkblue);
+    border-radius: 0.5em;
 }
 
 .SignUpBtn {
-    height: 45px;
-    width: 120px;
-    border-radius: 5px;
-    border: 3px solid var(--White);
+    width: 9.5em;
+    height: 2.8125em;
+    margin: 0 auto 3em auto;
+    border-radius: 0.3125em;
+    border: 0.1875em solid var(--White);
     color: var(--Darkblue);
-    cursor: pointer;
     background-color: transparent;
     transition: 0.5s;
     text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin: 0 auto 3em auto;
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
     transition: transform .2s ease-in-out;
+    cursor: pointer;
 }
 
 .SignUpBtn:hover {
@@ -349,14 +345,14 @@ select {
     transform: scale(1.1);
 }
 
-/*Alerts*/
+/*--- A L E R T S ---*/
 
 .close {
     float: right;
-    font-size: 21px;
+    color: #000;
+    font-size: 1.3125em;
     font-weight: bold;
     line-height: 1;
-    color: #000;
     text-shadow: 0 1px 0 #fff;
     opacity: .2;
 }
@@ -379,11 +375,11 @@ button.close {
 }
 
 .alert {
-    padding: 15px;
-    border-radius: 4px;
+    max-width: 21.749375em;
+    padding: 0.9375em;
     margin-top: 0;
     color: inherit;
-    max-width: 347.99px;
+    border-radius: 0.25em;
 }
 
 .alert .alert-link {
@@ -391,13 +387,13 @@ button.close {
 }
 
 .alert-dismissable {
-    padding-right: 35px;
+    padding-right: 2.1875em;
 }
 
 .alert-dismissable .close {
     position: relative;
-    top: -2px;
-    right: -21px;
+    top: -0.125em;
+    right: -1.3125em;
     color: inherit;
 }
 
@@ -418,15 +414,15 @@ button.close {
 .alert {
     border-radius: 0;
     -webkit-border-radius: 0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.11);
+    box-shadow: 0 0.0625em 0.125em rgba(0, 0, 0, 0.11);
 }
 
 .alert .sign {
-    font-size: 20px;
+    font-size: 1.25em;
     vertical-align: middle;
-    margin-right: 5px;
+    margin-right: 0.3125em;
     text-align: center;
-    width: 25px;
+    width: 1.5625em;
     display: inline-block;
 }
 
@@ -437,18 +433,18 @@ button.close {
     border-left-color: #cacaca;
     border-right-color: #cacaca;
     color: #404040;
-    padding-left: 61px;
+    padding-left: 3.8125em;
     position: relative;
 }
 
 .alert-white .icon {
     text-align: center;
-    width: 45px;
+    width: 2.8125em;
     height: 100%;
     position: absolute;
     top: 0;
-    left: -1px;
-    border: 1px solid #bdbdbd;
+    left: -0.0625em;
+    border: 0.0625em solid #bdbdbd;
 }
 
 .alert-white .icon:after {
@@ -460,33 +456,33 @@ button.close {
     transform: rotate(45deg);;
     display: block;
     content: '';
-    width: 10px;
-    height: 10px;
-    border: 1px solid #bdbdbd;
+    width: 0.625em;
+    height: 0.625em;
+    border: 0.0625em solid #bdbdbd;
     position: absolute;
     border-left: 0;
     border-bottom: 0;
     top: 50%;
-    right: -6px;
-    margin-top: -5px;
+    right: -0.375em;
+    margin-top: -0.3125em;
     background: #fff;
 }
 
 .alert-white.rounded {
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
+    border-radius: 0.1875em;
+    -webkit-border-radius: 0.1875em;
 }
 
 .alert-white.rounded .icon {
-    border-radius: 3px 0 0 3px;
-    -webkit-border-radius: 3px 0 0 3px;
+    border-radius: 0.1875em 0 0 0.1875em;
+    -webkit-border-radius: 0.1875em 0 0 0.1875em;
 }
 
 .alert-white .icon i {
-    font-size: 20px;
+    font-size: 1.25em;
     color: #FFF;
-    left: 12px;
-    margin-top: -10px;
+    left: 0.75em;
+    margin-top: -0.625em;
     position: absolute;
     top: 50%;
 }

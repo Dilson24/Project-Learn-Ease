@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../Public/Css/Home/Login/login.css">
+    <link rel="stylesheet" href="../../../Public/Css/System/Login/login.css">
     <link rel="stylesheet" href="../../../Public/Css/Includes/all.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Login</title>
@@ -43,21 +44,22 @@
                 <div class="icon"><i class="fa fa-check"></i></div>
                 <strong>Success!</strong> Registro exitoso,¡Bienvenido!
             </div>
-            <div id="errorAlertR"class="alert alert-danger alert-white rounded">
+            <div id="errorAlertR" class="alert alert-danger alert-white rounded">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true" id="closeBtnR">×</button>
                 <div class="icon"><i class="fa fa-times-circle"></i></div>
                 <strong>Error!</strong> Los campos no pueden estar vacios.
             </div>
 
             <div>
-                <form id="formRegister"class="form" method="post" action="../../../App/Controller/User/userController.php?register">
+                <form id="formRegister" class="form" method="post"
+                    action="../../../App/Controller/User/userController.php?register">
                     <label for="chk" aria-hidden="true">Registrarse</label>
                     <div class="inputBoxSignUp name">
-                        <input type="text" name="nameR"  required="required">
+                        <input type="text" name="nameR" required="required">
                         <span>Nombre</span>
                     </div>
                     <div class="inputBoxSignUp lastName">
-                        <input type="text" name="lastNameR"  required="required">
+                        <input type="text" name="lastNameR" required="required">
                         <span>Apellido</span>
                     </div>
                     <div class="inputBoxSignUp dateofBirth">
@@ -65,11 +67,11 @@
                         <span>Fecha de nacimiento</span>
                     </div>
                     <div class="inputBoxSignUp phone">
-                        <input type="tel" id="phone" name="phoneR"  required="required">
+                        <input type="tel" id="phone" name="phoneR" required="required">
                         <span>Número de teléfono</span>
                     </div>
                     <div class="inputBoxSignUp">
-                        <select id="country" class='form-control' name="countryR"  required="required">
+                        <select id="country" class='form-control' name="countryR" required="required">
                             <option value="">-- País --</option>
                         </select>
                     </div>
@@ -84,7 +86,7 @@
                         </select>
                     </div>
                     <div class="inputBoxSignUp">
-                        <select id="studentType" class='form-control' name="studentTypeR"  required="required">
+                        <select id="studentType" class='form-control' name="studentTypeR" required="required">
                             <option value="">-- ¿Qué tipo de estudiante eres? --</option>
                             <option value="1">Estudiante universitario/a</option>
                             <option value="2">Estudiante de secundaria</option>
@@ -102,9 +104,8 @@
                     <button class="SignUpBtn" type="submit">Registrarse</button>
                 </form>
             </div>
-
         </div>
-        <script src="../../../Public/Js/Home/Login/login.js"></script>
+        <script src="../../../Public/Js/System/Login/login.js"></script>
 </body>
 
 </html>

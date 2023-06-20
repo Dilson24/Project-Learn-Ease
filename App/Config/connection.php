@@ -8,5 +8,4 @@ try {
     throw new Exception('Database connection failed: '.$e->getMessage());
 }
 
-
 ?>
