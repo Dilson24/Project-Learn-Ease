@@ -18,10 +18,10 @@ document.getElementById('log_out').addEventListener('click', function () {
             if (xhr.status === 200) {
                 window.location.href = '../../../index.html';
             } else {
-
                 console.error('Error al cerrar sesión');
             }
         }
     };
     xhr.open('GET', '../../../App/View/User/loguot.php', true);
+    xhr.send();
 });
