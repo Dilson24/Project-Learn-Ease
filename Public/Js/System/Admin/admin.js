@@ -1,4 +1,4 @@
-//Search
+/*--- S E A R C H ---*/
 $(window).on('load', function () {
     // Agrega la clase 'list' a todas las filas del cuerpo de la tabla
     $('#table tbody tr').addClass('list');
@@ -131,10 +131,7 @@ $(window).on('load', function () {
     });
 });
 
-
-
-
-//SIDEBAR
+/*--- S I D E B A R ---*/
 let btn = document.querySelector("#btn");
 let sidebar = document.querySelector(".sidebar");
 let searchBtn = document.querySelector(".bx-search");
@@ -148,77 +145,24 @@ searchBtn.onclick = function () {
     sidebar.classList.toggle("active");
 }
 
+/*--- L O G - O U T ---*/ 
 document.getElementById('log_out').addEventListener('click', function () {
-    // Realizar una solicitud AJAX o redirigir directamente a un archivo PHP que cierre la sesión
-    // y luego redirigir a la página principal
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                // Redirigir a la página principal
                 window.location.href = '../../../index.html';
             } else {
-                // Manejar cualquier error de solicitud
                 console.error('Error al cerrar sesión');
             }
         }
     };
-    xhr.open('GET', '../../../App/View/User/loguot.php', true); // Reemplaza 'logout.php' con el nombre real del archivo que cierra la sesión
+    xhr.open('GET', '../../../App/View/User/loguot.php', true);
     xhr.send();
 });
 
-//Operations
-
-
-//DELETE
-
-const btnDelete = document.querySelectorAll(".fa-trash");
-btnDelete.forEach((icon) => {
-    icon.addEventListener("click", () => {
-        Swal.fire({
-            title: 'Eliminar registro',
-            text: "¡Está a punto de eliminar un registro de forma permanente!",
-            icon: 'warning',
-            showCancelButton: true,
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-            },
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, eliminarlo'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                const userId = icon.getAttribute("data-id");
-                deleteUserId(userId); // Llamar a la función para eliminar el usuario
-            }
-        });
-    });
-});
-
-function deleteUserId(userId) {
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            Swal.fire(
-                '¡Eliminado!',
-                'El registro ha sido eliminado.',
-                'success'
-            ).then(() => {
-                location.reload(); // Recargar la página para mostrar los cambios actualizados
-            });
-        }
-    };
-    xhr.open('POST', '../../../App/Controller/Admin/adminController.php?deleteUserId', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    const params = new URLSearchParams();
-    params.append('deleteUserId', true);
-    params.append('userId', userId);
-    xhr.send(params);
-}
-
+/*--- O P E R A T I O N S ---*/
+/*--- F U N C T I O N - A P I - S E L E C T S ---*/
 function loadCascadingSelects() {
     var selectedCountry = (selectedRegion = selectedCity = "");
     var BATTUTA_KEY = "00000000000000000000000000000000";
@@ -319,7 +263,55 @@ function loadCascadingSelects() {
         updateLocationString();
     });
 }
-//UPDATE
+/*--- D E L E T E ---*/
+
+const btnDelete = document.querySelectorAll(".fa-trash");
+btnDelete.forEach((icon) => {
+    icon.addEventListener("click", () => {
+        Swal.fire({
+            title: 'Eliminar registro',
+            text: "¡Está a punto de eliminar un registro de forma permanente!",
+            icon: 'warning',
+            showCancelButton: true,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            },
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminarlo'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const userId = icon.getAttribute("data-id");
+                deleteUserId(userId);
+            }
+        });
+    });
+});
+
+function deleteUserId(userId) {
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            Swal.fire(
+                '¡Eliminado!',
+                'El registro ha sido eliminado.',
+                'success'
+            ).then(() => {
+                location.reload();
+            });
+        }
+    };
+    xhr.open('POST', '../../../App/Controller/Admin/adminController.php?deleteUserId', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    const params = new URLSearchParams();
+    params.append('deleteUserId', true);
+    params.append('userId', userId);
+    xhr.send(params);
+}
+/*--- U P D A T E ---*/
 const btnUpdate = document.querySelectorAll(".fa-pen-to-square");
 btnUpdate.forEach((icon) => {
     icon.addEventListener("click", () => {
@@ -394,9 +386,7 @@ btnUpdate.forEach((icon) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const { name, lastName, dateOfBirth, phoneNumber, studentType, country, city } = result.value;
-                // ID del usurio selecionado
                 const userId = icon.getAttribute("data-id");
-                // Llamar a la función para actualizar el usuario
                 updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentType, country, city);
             }
         });
@@ -414,7 +404,7 @@ function updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentT
                     'El registro ha sido actualizado.',
                     'success'
                 ).then(() => {
-                    location.reload(); // Recargar la página para mostrar los cambios actualizados
+                    location.reload();
                 });
             } else {
                 Swal.fire(
@@ -428,7 +418,6 @@ function updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentT
 
     xhr.open('POST', '../../../App/Controller/Admin/adminController.php?updateUserId', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
     const params = new URLSearchParams();
     params.append('updateUserId', true);
     params.append('userId', userId);
@@ -442,10 +431,9 @@ function updateUserId(userId, name, lastName, dateOfBirth, phoneNumber, studentT
     xhr.send(params);
 }
 
-/*Insert*/
+/*--- I N S E R T ---*/
 
 const btnAddAdmin = document.querySelector(".btnAddAdmin");
-
 btnAddAdmin.onclick = function () {
     Swal.fire({
         title: 'Añadir nuevo Administrador',
@@ -504,7 +492,6 @@ btnAddAdmin.onclick = function () {
             const city = document.getElementById('city').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            // Validar que ningún campo esté vacío
             if (
                 name === '' ||
                 lastName === '' ||
@@ -523,12 +510,9 @@ btnAddAdmin.onclick = function () {
     }).then((result) => {
         if (result.isConfirmed) {
             const { name, lastName, dateOfBirth, phoneNumber, country, city, email, password } = result.value;
-
-            // Llamar a la función para crear nuevo admin
             insertNewAdmin(name, lastName, dateOfBirth, phoneNumber, country, city, email, password);
         }
     });
-
     loadCascadingSelects();
 }
 
@@ -542,7 +526,7 @@ function insertNewAdmin(name, lastName, dateOfBirth, phoneNumber, country, city,
                     'El usuario a sido creado con exito.',
                     'success'
                 ).then(() => {
-                    location.reload(); // Recargar la página para mostrar los cambios actualizados
+                    location.reload(); 
                 });
             } else {
                 Swal.fire(
@@ -553,10 +537,8 @@ function insertNewAdmin(name, lastName, dateOfBirth, phoneNumber, country, city,
             }
         }
     };
-
     xhr.open('POST', '../../../App/Controller/Admin/adminController.php?AddNewAdmin', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
     const params = new URLSearchParams();
     params.append('insertNewAdmin', true);
     if (name) params.append('name', name);
@@ -568,5 +550,4 @@ function insertNewAdmin(name, lastName, dateOfBirth, phoneNumber, country, city,
     if (email) params.append('email', email);
     if (password) params.append('password', password);
     xhr.send(params);
-
 }
