@@ -19,7 +19,7 @@
     --Secondary: #8794BA;
     --BackgroundCards: #D9D9D9;
     --ShadowCards: 0px 18px 50px -15px rgba(0, 0, 0, 0.25);
-    --ShadowCards2:-5px -5px 15px 5px rgba(0, 0, 0, 0.25), 5px 5px 15px 7px rgba(0, 0, 0, 0.25);
+    --ShadowCards2: -5px -5px 15px 5px rgba(0, 0, 0, 0.25), 5px 5px 15px 7px rgba(0, 0, 0, 0.25);
     --font-family: 'Roboto', sans-serif;
 }
 
@@ -82,6 +82,7 @@ body {
     top: -3px !important;
     transform: translate3d(-6px, 0, 0) rotate(-45deg) scale(0.7, 1) !important;
 }
+
 .hamburger--arrow.is-active .barsNav::after {
     top: 3px !important;
     transform: translate3d(-6px, 0, 0) rotate(45deg) scale(0.7, 1) !important;
@@ -89,7 +90,7 @@ body {
 
 .sidebar #btn:hover {
     opacity: 1 !important;
-    background:var(--White);
+    background: var(--White);
     border-radius: 12px;
     box-shadow: var(--ShadowCards);
     transition: 0s;
@@ -107,7 +108,8 @@ body {
     width: 20px;
     background-color: var(--Orange) !important;
 }
-.boxNav{
+
+.boxNav {
     left: 10px;
 }
 
@@ -199,7 +201,7 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background:var(--White);
+    background: var(--White);
     color: var(--Orange);
 }
 
@@ -258,17 +260,93 @@ body {
 }
 
 .profile .profile_details .name_job {
+    display: flex;
+    flex-direction: column;
     margin-left: 10px;
 }
 
-.profile .profile_details .name {
-    font-size: 15px;
-    font-weight: 400;
+/*tooltip Box*/
+.con-tooltip {
+    position: relative;
+    color: #fff;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    cursor: default;
 }
 
-.profile .profile_details .job {
-    font-size: 12px;
+.con-tooltip .name {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
 }
+
+/*tooltip */
+.tooltip_Profile {
+    visibility: hidden;
+    padding: 0px 10px;
+    z-index: 1;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)); /* Utiliza un gradiente de color blanco sólido */
+
+    color: var(--Orange);
+    position: absolute;
+    border-radius: 9px;
+    transform: translateY(9px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* tooltip  after*/
+.tooltip_Profile::after {
+    content: " ";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 9px 0 9px;
+    border-color: var(--White) transparent transparent transparent;
+    position: absolute;
+}
+
+.right .tooltip_Profile::after {
+    top: 20%;
+    left: -10%;
+    transform: rotate(90deg);
+}
+
+.con-tooltip:hover .tooltip_Profile {
+    visibility: visible;
+    transform: translateY(-10px);
+    transition: .3s linear;
+    animation: odsoky 1s ease-in-out infinite alternate;
+
+}
+
+@keyframes odsoky {
+    0% {
+        transform: translateY(6px);
+        text-rendering: optimizeLegibility;
+    }
+
+    100% {
+        transform: translateY(-1px);
+        text-rendering: optimizeLegibility;
+    }
+
+}
+
+/*hover ToolTip*/
+
+.right:hover {
+    transform: translateX(3px);
+}
+
+/*right*/
+
+.right .tooltip_Profile {
+    top: -42%;
+    left: 115%;
+}
+
+
+
 
 .profile #log_out {
     position: absolute;
@@ -283,7 +361,7 @@ body {
 }
 
 .profile #log_out:hover {
-    background:var(--White);
+    background: var(--White);
     color: var(--Orange);
 }
 

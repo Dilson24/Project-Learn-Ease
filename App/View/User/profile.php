@@ -100,11 +100,13 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'User') {
                 <div class="profile_details">
                     <img src="../../../<?php echo $_SESSION['profileImage']; ?>" alt="image profile">
                     <div class="name_job">
-                        <div class="name">
-                            <?php echo $_SESSION['name']; ?>
-                        </div>
-                        <div class="job">
-                            <?php echo $_SESSION['role']; ?>
+                        <div class="con-tooltip right">
+                            <a class="name" href="">
+                                Alexander
+                            </a>
+                            <div class="tooltip_Profile">
+                                <p>Ver perfil</p>
+                            </div>
                         </div>
                     </div>
                 </div>
