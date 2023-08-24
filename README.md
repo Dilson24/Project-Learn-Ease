@@ -18,11 +18,15 @@
 
 *Project Learn Ease'* was created for the Back-End challenge of the Full Stack Development - Intermediate course of the [Universidad Distrital Francisco José de Caldas](https://www.udistrital.edu.co/). The objective of the challenge is to demonstrate mastery of the main Front-End and Back-End technologies (HTML, CSS, JavaScript, PHP, APIs, Mysql, Authentication and Authorization).
 
+This project is essentially an educational chatbot, designed to provide assistance to students. By interacting with the chatbot, it becomes a personalized educational resource that answers questions, provides guidance on subjects and assignments, offers resources and study suggestions, and tracks academic progress. The vision is to enhance the educational experience by providing students with continuous and effective support throughout their academic journey.
+
 You can test the landipage of this project here --> [Project Learn Ease](https://dilson24.github.io/Project-Memorize-Game/)
 
 ## Resumen
 
 *'Project Learn Ease'* fue creado para el reto Back-End del curso *Desarrollo Full Stack - Intermedio'* de la [Universidad Distrital Francisco José de Caldas](https://www.udistrital.edu.co/). El objetivo del reto es demostrar el dominio de las principales tecnologías Front-End y Back-End (HTML, CSS, JavaScript, PHP, APIs, Mysql, Autenticación y Autorización).
+
+Este proyecto en esencia es un chatbot educativo, diseñado para brindar asistencia a los estudiantes. Al interactuar con el chatbot, este se convierte en un recurso educativo personalizado que responde preguntas, da orientación sobre materias y tareas, ofrece recursos y sugerencias de estudio, y realiza un seguimiento del progreso académico. La visión es mejorar la experiencia educativa, ofreciendo a los estudiantes apoyo continuo y efectivo a lo largo de su recorrido académico.
 
 Puedes probar la landipage de este proyecto aqui --> [Project Learn Ease](https://dilson24.github.io/Project-Memorize-Game/)
 
@@ -64,10 +68,58 @@ Además de la página de inicio llamativa y moderna, se han implementado varios 
 En conjunto, todas estas mejoras en la interfaz de usuario contribuyen a una experiencia de navegación y uso más atractiva, moderna y amigable para los usuarios que visitan tu proyecto.
 
 ## Application features
-This game is a browser-based card game that presents the player with cards arranged in a grid, where the easy level has a 4x4 grid containing 8 matching symbols, the medium level has a 6x4 grid containing 12 matching symbols and the hard level has a 6x6 grid containing 18 matching symbols. The objective of the *'Emparejado2'* game is for the player to turn over pairs of matching cards in the shortest possible time using few moves. 
-In a turn, if the player chooses two cards whose symbols match, the matched symbols will be shown. However, if the player chooses two cards with different symbols, both cards will be flipped over again. The game ends when all pairs of matching cards have been revealed.
+The application is distinguished by a solid UI/UX design that blends harmoniously with the color palette of the home page. Thanks to server-side programming, the information is tailored to each user, creating a truly unique experience.
+
+### User
+
+* A distinguishing feature is the modern and attractive sidebar that offers users quick access to various function panels. This essential navigation companion also includes a logout button, allowing an easy and secure logout from the application.
+
+* Within the application environment, there is a special section dedicated to each user's profile. This space not only presents the profile information, but also allows modifications to these details. This feature adds a personal and practical touch, giving users full control over their own information.
+
+In addition to the features already detailed, the application, currently under construction, has the vision of becoming a chatbot designed for students, providing a series of innovative functionalities that will enrich the educational experience:
+
+* **Personalized Assistance and Guidance:** The chatbot will provide tailored advice and guidance to students, answering their queries on subjects, assignments and other academic aspects.
+
+* **Educational Resources:** The chatbot will be able to provide relevant educational resources, such as links to books, articles, videos and other study materials.
+
+* **Reminders and Scheduling:** Students will have the ability to set reminders for assignments and exams; the chatbot will send notifications according to their preferences.
+
+* **Problem Solving:** The chatbot will be a tool to help students solve problems related to the course content, providing step-by-step solutions.
+
+* **Progress Tracking:** The chatbot will have the ability to monitor students' academic progress, providing reports and statistics about their performance.
+
+* **Study Suggestions:** Based on the student's study habits and academic history, the chatbot could propose effective study methods.
+
+* **Social Interaction and Collaboration:** The chatbot could facilitate interaction between students, allowing them to form study groups and collaborate on academic projects.
+
+* **Frequently Asked Questions about the Platform:** The chatbot would have the ability to provide answers to common questions about how the platform works and its features.
+
+### Admin
+
+The administrator panel adopts the same design guidelines as the user interface. In this dedicated control area, advanced capabilities are deployed to enable efficient management and monitoring of the platform:
+
+* **User Management:** With the power of CRUD operations, the administrator exercises full control over users. Creating, Reading, Updating and Deleting accounts becomes an intuitive and efficient task, allowing the creation of new profiles, viewing existing profiles, updating details and deleting accounts as needed.
+
+* **Statistics and Reporting:** The application not only provides a superficial glimpse, but an in-depth view of user activity. Detailed reports on chatbot interactions and other relevant data are delivered to empower the administrator with crucial information, enabling informed decisions and rigorous monitoring of platform performance.
+
+* **Content Management:** With a seamless interface, you manage the very heart of the platform: your content. Adding, editing and deleting educational resources, publications, announcements and other elements becomes a simple task, allowing constant and accurate adaptation.
+
+* **Advanced Technical Support:** The chatbot becomes a personalized technical assistant for the administrator. Answers to specific questions about the system, user management and other related areas are within reach, providing comprehensive technical assistance.
+
+* **Roles and Permissions Management:** The ability to define and assign roles and permissions to users is simplified, ensuring proper and secure access to different areas and functions of the platform. Hierarchy and access control are easily established.
+
+* **Strategic Communication:** The chatbot establishes a direct communication bridge between the administrator and the users. It not only sends relevant notifications and messages, but also drives active participation and constructive feedback.
+
+* **Real-Time Monitoring:** A real-time observation window opens to the administrator. User interactions with the chatbot, time spent on the platform and other vital indicators are exposed in real time, enabling agile decision making.
+
+* **Intelligent Automation:** The chatbot takes the lead on repetitive administrative tasks, freeing up valuable time. Automatic sending of reminders, scheduling of reports and other routine actions are executed accurately and efficiently.
+
+* **Auditing and Monitoring:** Platform integrity is a priority. The chatbot assumes a crucial role in security audits, analyzing activity logs, identifying potential threats and deploying preventive measures to ensure a secure and reliable environment.
+
+It is essential to underline that these functionalities are in a development stage. With the primary goal of providing users with an increasingly robust and valuable chatbot experience. Furthermore, as a developer, I will gain experience by evaluating best practices and technologies for the realization of the aforementioned chatbot features.
 
 ## Características de la aplicación
+
 La aplicación se distingue por un diseño UI/UX sólido que se funde armoniosamente con la paleta de colores de la página de inicio. Gracias a la programación del lado del servidor, la información se adapta a la medida de cada usuario, generando así una experiencia verdaderamente singular.
 
 ### User
@@ -121,56 +173,58 @@ Es fundamental subrayar que estas funcionalidades se encuentran en una etapa de 
 ## Screenshots
 ### Home
 
-![App Screenshot](Img/Screenshot's/view-1.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-2.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-3.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view1.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view2.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view3.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view4.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view5.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view6.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view7.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view8.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view9.png "AppScreenshot")
 
-### Memorize Game
-![App Screenshot](Img/Screenshot's/view-4.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-5.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-6.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-7.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-8.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-9.png "AppScreenshot")
+### Login
+![App Screenshot](Public/Assets/Img/Screanshot/view10.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view11.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view12.png "AppScreenshot")
+
 
 ### Responsive
-![App Screenshot](Img/Screenshot's/view-12.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-13.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-14.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-15.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-16.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-17.png "AppScreenshot")
-
-
-### PWA Desktop
-![App Screenshot](Img/Screenshot's/view-10.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-11.png "AppScreenshot")
-
-
-### PWA Movil
-![App Screenshot](Img/Screenshot's/view-18.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-19.png "AppScreenshot")
-![App Screenshot](Img/Screenshot's/view-20.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view13.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view14.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view15.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view16.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view17.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view18.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view19.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view20.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view21.png "AppScreenshot")
+![App Screenshot](Public/Assets/Img/Screanshot/view22.png "AppScreenshot")
 
 ## Tech
 - [HTML5] - HyperText Markup Language, versión 5.
 - [CSS] - Cascading Style Sheets.
 - [JavaScript] -  Interpreted programming language.
-- [PWA] - Progressive web applications.
 - [SweetAlert2] - *jQuery* plugin and with which we can give a professional look to the messages we send to users according to current trends.
 - [Font Awesome] - Font Awesome is a font and icon toolkit based on CSS and Less.
 - [Animate.css] - Library of ready-to-use, cross-browser animations for use in your web projects. Great for emphasis, home pages, sliders, and attention-guiding hints.
+- [ScrollReveal] - JavaScript library that adds animation effects to the elements of a web page when the user scrolls down the page.
+- [PHP] - General-purpose programming language that is especially suited to web development.
+- [MySQL] - Relational database management system.
 ## Tecnologías
 - [HTML5] - Lenguaje de marcado de hipertexto, versión 5.
 - [CSS] - Hojas de estilo en cascada.
 - [JavaScript] - Lenguaje de programación interpretado.
-- [PWA] - Aplicaciones web progresivas.
-- [SweetAlert2] - Plugin *jQuery*  con el que podemos dar un aspecto profesional a los mensajes que enviamos a los usuarios según las tendencias actuales.
+- [SweetAlert2] - Plugin *jQuery* y con el que podemos dar un aspecto profesional a los mensajes que enviamos a los usuarios según las tendencias actuales.
 - [Font Awesome] - Font Awesome es un conjunto de herramientas de fuentes e iconos basado en CSS y Less.
-- [Animate.css] - Biblioteca de animaciones listas para usar y compatibles con todos los navegadores para utilizar en tus proyectos web. Ideal para énfasis, páginas de inicio, deslizadores y sugerencias para llamar la atención.
+- [Animate.css] - Biblioteca de animaciones listas para usar y compatibles con todos los navegadores para utilizar en tus proyectos web. Ideal para énfasis, páginas de inicio, deslizadores y sugerencias para guiar la atención.
+- [ScrollReveal] - Biblioteca JavaScript que añade efectos de animación a los elementos de una página web cuando el usuario se desplaza por ella.
+- [PHP] - Lenguaje de programación de propósito general especialmente adecuado para el desarrollo web.
+- [MySQL] - Sistema de gestión de bases de datos relacionales.
 
 ## Authors
 - [@Dilson24](https://www.github.com/Dilson24) - Coding and documentation.
+
 ## License
 **Free Software, Hell Yeah!**
 [MIT](https://choosealicense.com/licenses/mit/) © 2023 - Dilson Alexander Cruz Nivia
@@ -178,7 +232,9 @@ Es fundamental subrayar que estas funcionalidades se encuentran en una etapa de 
  [JavaScript]: <https://lenguajejs.com/>
  [HTML5]: <https://lenguajehtml.com/html/>
  [CSS]: <https://lenguajecss.com/css/>
- [PWA]: <https://web.dev/i18n/es/progressive-web-apps/>
  [SweetAlert2]: <https://sweetalert.js.org/>
- [Font Awesome]: <https://fontawesome.com/>
+ [Font-Awesome]: <https://fontawesome.com/>
  [Animate.css]: <https://animate.style/>
+ [ScrollReveal]: <https://scrollrevealjs.org/>
+ [PHP]: <https://www.php.net/>
+ [MySQL]: <https://www.mysql.com/>
