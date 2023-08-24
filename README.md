@@ -1,5 +1,6 @@
 # Project Learn Ease
-![View Zero](Public/Assets/Img/headerLogo.svg "View Zero")
+<img align="center" width="800" height="200" src="Public/Assets/Img/headerLogo.svg">
+
 ![Bower](https://img.shields.io/bower/l/MI)
 
 ## Table of Contents
