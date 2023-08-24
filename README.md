@@ -21,7 +21,7 @@
 
 This project is essentially an educational chatbot, designed to provide assistance to students. By interacting with the chatbot, it becomes a personalized educational resource that answers questions, provides guidance on subjects and assignments, offers resources and study suggestions, and tracks academic progress. The vision is to enhance the educational experience by providing students with continuous and effective support throughout their academic journey.
 
-You can test the landipage of this project here --> [Project Learn Ease](https://dilson24.github.io/Project-Memorize-Game/)
+You can test the landipage of this project here --> [Project Learn Ease](https://dilson24.github.io/Project-Learn-Ease/)
 
 ## Resumen
 
@@ -29,7 +29,7 @@ You can test the landipage of this project here --> [Project Learn Ease](https:/
 
 Este proyecto en esencia es un chatbot educativo, diseñado para brindar asistencia a los estudiantes. Al interactuar con el chatbot, este se convierte en un recurso educativo personalizado que responde preguntas, da orientación sobre materias y tareas, ofrece recursos y sugerencias de estudio, y realiza un seguimiento del progreso académico. La visión es mejorar la experiencia educativa, ofreciendo a los estudiantes apoyo continuo y efectivo a lo largo de su recorrido académico.
 
-Puedes probar la landipage de este proyecto aqui --> [Project Learn Ease](https://dilson24.github.io/Project-Memorize-Game/)
+Puedes probar la landipage de este proyecto aqui --> [Project Learn Ease](https://dilson24.github.io/Project-Learn-Ease/)
 
 
 ## UI Features
