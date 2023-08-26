@@ -90,3 +90,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
     accordionToggles[i].addEventListener('click', switchAccordion, false);
   }
 })();
+
+/*--- E V E N T C L I C K  L O G O ---*/
+
+  var logo = document.getElementById('logo');
+      logo.addEventListener('click', function() {
+       window.location.href = 'index.html';
+  });
